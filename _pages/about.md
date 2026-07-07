@@ -1,0 +1,33 @@
+---
+permalink: /
+title: "沈谦逸 Qianyi Shen"
+author_profile: true
+redirect_from: 
+  - /about/
+  - /about.html
+---
+
+- Ph.D. Student at Control Science and Engineering, with the [College of Electronic and Information Engineering](https://see.tongji.edu.cn/) (CEIE), [Tongji University](https://www.tongji.edu.cn/)
+  - Supervisor: **[Prof. Jie Chen](https://www.tongji.edu.cn/info/1136/21221.htm) (IEEE Fellow, IFAC Fellow, Academician of Chinese Academy of Engineering)**
+  - Collaborates with [Prof. Hong Chen](https://see.tongji.edu.cn/info/1376/10290.htm) (IEEE Fellow) and [Assoc. Prof. Lin Zhang](https://faculty.tongji.edu.cn/zhanglin123456/zh_CN/index.htm)
+- Email: [qyshen@tongji.edu.cn](mailto:qyshen@tongji.edu.cn)
+
+
+## Research Interests
+
+- Vehicle Motion Control (VMC)
+- Chassis Domain Control (CDC)
+- Autonomous Driving (AD)
+- Learning-based Model Predictive Control
+- Multi-agent Systems
+
+## Biography
+
+### Education
+- 2021.09-2025.06, B.Eng., [School of Automation and Intelligent Science](https://iot.jiangnan.edu.cn/), [Jiangnan University](https://www.jiangnan.edu.cn/), Wuxi, China.
+  - Supervisor: [Prof. Ziyun Wang](https://iot.jiangnan.edu.cn/info/1141/3583.htm)
+  - 2022.06-2025.06, [Honors School](https://honorschool.jiangnan.edu.cn/) student, supervised by [Prof. Yan Wang](https://iot.jiangnan.edu.cn/info/1141/3534.htm)
+    - A prestigious research program admitting approximately the top 5% of undergraduate students
+- 2025.09-Present, Ph.D., [College of Electronic and Information Engineering](https://see.tongji.edu.cn/), [Tongji University](https://www.tongji.edu.cn/), Shanghai, China.
+  - Supervisor: [Prof. Jie Chen](https://www.tongji.edu.cn/info/1136/21221.htm)
+  - Collaborates with [Prof. Hong Chen](https://see.tongji.edu.cn/info/1376/10290.htm) and [Assoc. Prof. Lin Zhang](https://faculty.tongji.edu.cn/zhanglin123456/zh_CN/index.htm)

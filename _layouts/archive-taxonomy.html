@@ -1,0 +1,28 @@
+---
+layout: default
+author_profile: false
+---
+
+{% assign show_author_profile = false %}
+{% if page.author_profile or layout.author_profile %}
+  {% if page.url == "/" or page.url == "/zh_cn/" %}
+    {% assign show_author_profile = true %}
+  {% endif %}
+{% endif %}
+
+{% assign has_sidebar = false %}
+{% if show_author_profile or page.sidebar %}
+  {% assign has_sidebar = true %}
+{% endif %}
+
+<div id="main" class="{% if has_sidebar %}layout--has-sidebar{% else %}layout--no-sidebar{% endif %}" role="main">
+  {% include sidebar.html %}
+
+  <div class="archive">
+    <h1 class="page__title">{{ page.title }}</h1>
+    {% include base_path %}
+    {% for post in page.posts %}
+      {% include archive-single.html %}
+    {% endfor %}
+  </div>
+</div>

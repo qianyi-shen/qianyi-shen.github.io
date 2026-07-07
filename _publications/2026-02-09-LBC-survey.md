@@ -1,0 +1,17 @@
+---
+title: "Learning-based Control for Intelligent Vehicle Motion Control: A Review and Perspective"
+collection: publications
+category: manuscripts
+permalink: /publication/survey-lbc
+excerpt: 'A comprehensive and unified review of learning-based control methods for intelligent vehicle motion control, covering the latest advancements in the field and discussing future research directions.'
+date: 2026-4-25
+venue: 'Submitted (under review)'
+# slidesurl: '/files/slides1.pdf'
+# paperurl: '/files/paper1.pdf'
+# bibtexurl: '/files/bibtex1.bib'
+# citation: 'Your Name, You. (2009). &quot;Paper Title Number 1.&quot; <i>Journal 1</i>. 1(1).'
+---
+
+This survey provides a comprehensive review of learning-based control methods for intelligent vehicle motion control, covering the latest advancements in the field. The paper systematically categorizes and analyzes various techniques, including model learning, policy learning, and safety constraint learning. The applications of these methods and future research directions are also discussed in detail.
+
+Related sources will be added after the paper is officially published, including slides (PDF), paper (PDF) and citation information.
