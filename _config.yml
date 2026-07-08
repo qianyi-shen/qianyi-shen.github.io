@@ -173,11 +173,13 @@ timezone: Etc/UTC
 plugins:
   - jekyll-redirect-from
   - jemoji
+  - jekyll-sitemap
 
 # Mimic GitHub Pages with --safe
 whitelist:
   - jekyll-redirect-from
   - jemoji
+  - jekyll-sitemap
 
 # HTML Compression
 compress_html:
