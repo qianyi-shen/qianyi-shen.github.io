@@ -9,8 +9,8 @@ en: &DEFAULT_EN
   toc_label                  : "On This Page"
   ext_link_label             : "Direct Link"
   less_than                  : "less than"
-  minute_read                : "minute read"
-  minute_read_plural         : "minutes read"
+  minute_read                : "min read"
+  minute_read_plural         : "min read"
   share_on_label             : "Share on"
   meta_label                 :
   tags_label                 : "Tags:"

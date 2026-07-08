@@ -11,9 +11,9 @@ repository               : "https://github.com/qianyi-shen/qianyi-shen.github.io
 
 # Site Author
 author:
-  avatar           : "profile.jpg"
+  avatar           : "profile-avatar.jpg"
   name             : "Qianyi Shen"
-  pronouns         : "he/his/him"
+  pronouns         : "he/him/his"
   bio              : "Ph.D. student"
   location         : "Shanghai, China"
   employer         : "Tongji University"

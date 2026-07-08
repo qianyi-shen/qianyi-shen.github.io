@@ -30,6 +30,6 @@ Patents
 Degree Thesis
 ======
 
-- Bachelor’s Thesis: Zonotopic Based State Estimation Algorithms for Time-Delay Systems and Its Applications, **Qianyi Shen** (Supervisor: [Prof. Ziyun Wang](https://iot.jiangnan.edu.cn/info/1141/3583.htm)). 
+- Bachelor’s Thesis: Zonotopic State Estimation Algorithms for Time-Delay Systems and Applications, **Qianyi Shen** (Supervisor: [Prof. Ziyun Wang](https://iot.jiangnan.edu.cn/info/1141/3583.htm)). 
   - Best Bachelor’s Thesis Award (top 1/200), Jiangnan University, 2025.
   - Nominated as a leading candidate for the Jiangsu Provincial Best Bachelor’s Thesis Award (results pending).

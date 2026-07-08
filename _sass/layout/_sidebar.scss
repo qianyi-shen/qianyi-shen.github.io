@@ -154,10 +154,16 @@
   }
 
   img {
-    max-width: 175px;
-    border-radius: 50%;
+    width: 36px;
+    aspect-ratio: 5 / 7;
+    max-width: 36px;
+    object-fit: cover;
+    object-position: center 25%;
+    border-radius: 8px;
 
     @include breakpoint($large) {
+      width: 175px;
+      max-width: 175px;
       padding: 5px;
       border: 1px solid var(--global-border-color);
     }

@@ -7,11 +7,9 @@ redirect_from:
   - /about.html
 ---
 
-- Ph.D. Student at Control Science and Engineering, with the [College of Electronic and Information Engineering](https://see.tongji.edu.cn/) (CEIE), [Tongji University](https://www.tongji.edu.cn/)
-  - Supervisor: **[Prof. Jie Chen](https://www.tongji.edu.cn/info/1136/21221.htm) (IEEE Fellow, IFAC Fellow, Academician of Chinese Academy of Engineering)**
+- Ph.D. student in Control Science and Engineering, at the [College of Electronic and Information Engineering](https://see.tongji.edu.cn/) (CEIE), [Tongji University](https://www.tongji.edu.cn/)
+  - Supervisor: **[Prof. Jie Chen](https://www.tongji.edu.cn/info/1136/21221.htm) (IEEE Fellow, IFAC Fellow, Academician of the Chinese Academy of Engineering)**
   - Collaborates with [Prof. Hong Chen](https://see.tongji.edu.cn/info/1376/10290.htm) (IEEE Fellow) and [Assoc. Prof. Lin Zhang](https://faculty.tongji.edu.cn/zhanglin123456/zh_CN/index.htm)
-- Email: [qyshen@tongji.edu.cn](mailto:qyshen@tongji.edu.cn)
-
 
 ## Research Interests
 

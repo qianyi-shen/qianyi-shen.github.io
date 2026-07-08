@@ -13,10 +13,10 @@ Education
 
 * 2021.09-2025.06, B.Eng., [School of Automation and Intelligent Science](https://iot.jiangnan.edu.cn/), [Jiangnan University](https://www.jiangnan.edu.cn/), Wuxi, China.
   * Supervisor: [Prof. Ziyun Wang](https://iot.jiangnan.edu.cn/info/1141/3583.htm)
-* 2022.06-2025.06, [Honors School](https://honorschool.jiangnan.edu.cn/) student, supervised by [Prof. Yan Wang](https://iot.jiangnan.edu.cn/info/1141/3534.htm)
-  * A prestigious research-oriented program admitting approximately the top 5% of undergraduate students
+  * 2022.06-2025.06, [Honors School](https://honorschool.jiangnan.edu.cn/) student, supervised by [Prof. Yan Wang](https://iot.jiangnan.edu.cn/info/1141/3534.htm)
+    * A prestigious research-oriented program admitting approximately the top 5% of undergraduate students
 * 2025.09-Present, Ph.D., [College of Electronic and Information Engineering](https://see.tongji.edu.cn/), [Tongji University](https://www.tongji.edu.cn/), Shanghai, China.
-  * Supervisor: [Prof. Jie Chen](https://www.tongji.edu.cn/info/1136/21221.htm) (IEEE Fellow, IFAC Fellow, Academician of Chinese Academy of Engineering)
+  * Supervisor: [Prof. Jie Chen](https://www.tongji.edu.cn/info/1136/21221.htm) (IEEE Fellow, IFAC Fellow, Academician of the Chinese Academy of Engineering)
   * Collaborates with [Prof. Hong Chen](https://see.tongji.edu.cn/info/1376/10290.htm) (IEEE Fellow) and [Assoc. Prof. Lin Zhang](https://faculty.tongji.edu.cn/zhanglin123456/zh_CN/index.htm)
 
 <!-- Work experience
@@ -25,7 +25,7 @@ Education
 Skills
 ======
 
-* Proficient Chinese (native) and English communication skills
+* Native Chinese speaker with proficient English communication skills
   * **CET-6: 616**
   * Paper writing and presentation skills
 * Vehicle Dynamics and Control
@@ -33,13 +33,13 @@ Skills
   * Chassis Domain Control
   * Vehicle System Dynamics
   * Toolchain: **CarSim, Python, ROS2**
-* Proficient in Control Theories and Applications
+* Proficient in Control Theory and Applications
   * Model Predictive Control
   * State Estimation Theories
   * Optimal Control
-  * Toolchain: **MATLAB, Python, Casadi**, ...
+  * Toolchain: **MATLAB, Python, CasADi**, ...
 * Machine Learning and Data Analysis
-  * Toolchain: **PyTorch, Cuda, NVIDIA Jetson Orin/Thor, Ubuntu**
+  * Toolchain: **PyTorch, CUDA, NVIDIA Jetson Orin/Thor, Ubuntu**
 
 Awards
 ======
