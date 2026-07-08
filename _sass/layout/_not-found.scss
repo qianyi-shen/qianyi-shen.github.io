@@ -1,0 +1,69 @@
+/* ==========================================================================
+   404 PAGE
+   ========================================================================== */
+
+.not-found {
+  max-width: 46rem;
+  margin: 0 auto 2.5em;
+  padding: 1.5em;
+  border: 1px solid var(--global-border-color);
+  border-radius: $border-radius;
+  background-color: var(--global-bg-color);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.06);
+
+  p:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.not-found__lead {
+  margin-bottom: 0.75em;
+  color: var(--global-text-color);
+  font-size: $type-size-4;
+  line-height: 1.45;
+}
+
+.not-found__actions {
+  margin: 1.5em 0;
+
+  p {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin: 0;
+  }
+
+  .btn {
+    margin-bottom: 0;
+    text-decoration: none;
+  }
+}
+
+.not-found__links {
+  margin: 1.5em 0;
+
+  p {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
+    gap: 0.75rem;
+    margin: 0;
+  }
+
+  a {
+    display: block;
+    padding: 0.75rem 0.85rem;
+    color: var(--global-text-color);
+    text-decoration: none;
+    border: 1px solid var(--global-border-color);
+    border-radius: $border-radius;
+    background-color: rgba(127, 127, 127, 0.04);
+    transition: $global-transition;
+
+    &:hover {
+      color: var(--global-link-color-hover);
+      text-decoration: none;
+      border-color: var(--global-base-color);
+      transform: translateY(-1px);
+    }
+  }
+}
