@@ -5,7 +5,8 @@ category: manuscripts
 permalink: /publication/survey-lbc
 excerpt: 'A comprehensive and unified review of learning-based control methods for intelligent vehicle motion control, covering the latest advancements in the field and discussing future research directions.'
 date: 2026-4-25
-venue: 'Submitted (under review)'
+publication_status: submitted
+publication_status_note: 'under review'
 # slidesurl: '/files/slides1.pdf'
 # paperurl: '/files/paper1.pdf'
 # bibtexurl: '/files/bibtex1.bib'

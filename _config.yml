@@ -62,9 +62,13 @@ facebook:
 og_image                 :
 og_description           :
 social:
-  type                   :
-  name                   :
+  type                   : Person
+  name                   : *name
   links:
+    - https://scholar.google.com/citations?user=nIqW0qsAAAAJ&hl=en
+    - https://orcid.org/0009-0008-0746-3135
+    - https://github.com/EthanQY
+    - https://www.instagram.com/qethanshen/
 
 # Analytics
 analytics:
@@ -85,6 +89,7 @@ exclude:
   - .github
   - .jekyll-assets-cache
   - .sass-cache
+  - AGENTS.md
   - assets/js/_main.js
   - assets/js/plugins
   - assets/js/vendor

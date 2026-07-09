@@ -94,8 +94,8 @@
       "@context" : "http://schema.org",
       "@type" : "{% if site.social.type %}{{ site.social.type }}{% else %}Person{% endif %}",
       "name" : "{{ site.social.name | default: site.name }}",
-      "url" : {{ seo_url | jsonify }},
-      "sameAs" : {{ site.social.links | jsonify }}
+      "url" : {{ seo_url | jsonify }}{% if site.social.links and site.social.links.size > 0 %},
+      "sameAs" : {{ site.social.links | jsonify }}{% endif %}
     }
   </script>
 {% endif %}

@@ -93,6 +93,17 @@
   color: var(--global-text-color-light);
 }
 
+.publication-meta--submitted {
+  .publication-meta__label {
+    color: var(--global-text-color);
+    font-weight: 600;
+  }
+}
+
+.publication-meta__status {
+  color: var(--global-text-color-light);
+}
+
 .publication-meta__year {
   color: var(--global-text-color);
   font-weight: 600;

@@ -201,7 +201,7 @@
 .sidebar .author__desktop {
   display: none;
   @media screen and (min-width: 1024px) {
-    display: block;
+    display: grid;
   }
 }
 
@@ -232,7 +232,9 @@
   cursor: default;
 
   li:last-child {
-    a {
+    a,
+    .author__wechat-trigger,
+    &.author__desktop {
       margin-bottom: 0;
     }
   }
@@ -320,25 +322,45 @@
   li {
     white-space: nowrap;
   }
+}
 
-  a {
-    display: block;
-    margin-bottom: 5px;
-    padding-right: 5px;
-    padding-left: 5px;
-    padding-top: 2px;
-    padding-bottom: 2px;
-    border-radius: $border-radius;
-    color: inherit;
-    font-size: $type-size-5;
+.author__urls a,
+.author__urls .author__wechat-trigger {
+  display: grid;
+}
+
+.author__urls a,
+.author__urls .author__wechat-trigger,
+.sidebar .author__desktop {
+  grid-template-columns: 1.25em auto;
+  column-gap: 0.5em;
+  align-items: center;
+  margin-bottom: 5px;
+  padding: 2px 5px;
+  border-radius: $border-radius;
+  text-decoration: none;
+}
+
+.author__urls a,
+.author__urls .author__wechat-trigger,
+.sidebar .author__desktop {
+  color: inherit;
+  line-height: 1.5;
+}
+
+.author__urls .icon-pad-right {
+  width: 1.25em;
+  margin-right: 0;
+  padding-right: 0;
+  text-align: center;
+}
+
+.author__urls a {
+  &:hover,
+  &:focus-visible {
+    background: rgba($primary-color, 0.12);
+    color: var(--global-link-color-hover);
     text-decoration: none;
-
-    &:hover,
-    &:focus-visible {
-      background: rgba($primary-color, 0.12);
-      color: var(--global-link-color-hover);
-      text-decoration: none;
-    }
   }
 }
 
@@ -355,12 +377,6 @@
 }
 
 .author__wechat-trigger {
-  display: block;
-  margin-bottom: 5px;
-  padding-top: 2px;
-  padding-bottom: 2px;
-  color: inherit;
-  font-size: $type-size-5;
   cursor: pointer;
 
   &:hover,

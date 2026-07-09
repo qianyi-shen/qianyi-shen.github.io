@@ -61,7 +61,12 @@ assert_contains "$hobbies" 'class="hobby-gallery"'
 assert_contains "$hobbies" 'class="hobby-feature"'
 assert_contains "$blog" 'class="blog-index"'
 assert_contains "$blog" 'class="post-tags"'
-assert_contains "$publications" 'class="publication-meta"'
+assert_contains "$publications" 'class="publication-meta publication-meta--'
+assert_contains "$publications" 'publication-meta--published'
+assert_contains "$publications" 'publication-meta--submitted'
+assert_contains "$publications" 'Submitted'
+assert_contains "$publications" 'under review'
+assert_not_contains "$publications" '<i>Submitted (under review)</i>'
 
 assert_file "_includes/publication-links.html"
 assert_contains "_includes/archive-single.html" "{% include publication-links.html item=post %}"

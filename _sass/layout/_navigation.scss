@@ -74,7 +74,8 @@
     float: left;
     margin-left: -1px;
 
-    a {
+    a,
+    span {
       margin-bottom: 0.25em;
       padding: 0.5em 1em;
       font-family: $sans-serif;
@@ -86,10 +87,6 @@
       color: var(--global-text-color-light);
       border: 1px solid var(--global-border-color);
       border-radius: 0;
-
-      &:hover {
-        color: var(--global-link-color-hover);
-      }
 
       &.current {
         color: #fff;
@@ -103,17 +100,23 @@
       }
     }
 
+    a:hover {
+      color: var(--global-link-color-hover);
+    }
+
     &:first-child {
       margin-left: 0;
 
-      a {
+      a,
+      span {
         border-top-left-radius: $border-radius;
         border-bottom-left-radius: $border-radius;
       }
     }
 
     &:last-child {
-      a {
+      a,
+      span {
         border-top-right-radius: $border-radius;
         border-bottom-right-radius: $border-radius;
       }

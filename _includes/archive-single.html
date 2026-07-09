@@ -49,10 +49,18 @@
     {% if post.collection == 'teaching' %}
       <p> {{ post.type }}, <i>{{ post.venue }}</i>, {{ post.date | default: "1900-01-01" | date: "%Y" }} </p>
     {% elsif post.collection == 'publications' %}
-      <p class="publication-meta">
-        {% if post.venue %}
-          <span class="publication-meta__label">Published in</span>
-          <i>{{ post.venue }}</i>
+      {% assign publication_status = post.publication_status | default: "published" %}
+      <p class="publication-meta publication-meta--{{ publication_status | slugify }}">
+        {% if publication_status == "submitted" %}
+          <span class="publication-meta__label">Submitted</span>
+          {% if post.publication_status_note %}
+            <span class="publication-meta__status">({{ post.publication_status_note }})</span>
+          {% endif %}
+        {% else %}
+          {% if post.venue %}
+            <span class="publication-meta__label">Published in</span>
+            <i>{{ post.venue }}</i>
+          {% endif %}
         {% endif %}
         {% if post.date %}
           <time class="publication-meta__year" datetime="{{ post.date | default: "1900-01-01" | date_to_xmlschema }}">{{ post.date | default: "1900-01-01" | date: "%Y" }}</time>
@@ -63,9 +71,11 @@
     {% endif %}
 
     {% if post.excerpt and site.read_more != 'enabled' %}
-    <p class="archive__item-excerpt" itemprop="description">{{ post.excerpt | markdownify }}</p>
+    <div class="archive__item-excerpt" itemprop="description">{{ post.excerpt | markdownify }}</div>
     {% elsif post.excerpt and site.read_more == 'enabled' %}
-    <p class="archive__item-excerpt" itemprop="description"><p>{{ post.excerpt | markdownify | remove: '<p>' | remove: '</p>' }}<strong><a href="{{ base_path }}{{ post.url }}" rel="permalink"> Read more</a></strong></p></p>
+    <div class="archive__item-excerpt" itemprop="description">
+      <p>{{ post.excerpt | markdownify | remove: '<p>' | remove: '</p>' }}<strong><a href="{{ base_path }}{{ post.url }}" rel="permalink"> Read more</a></strong></p>
+    </div>
     {% endif %}
     
     {% if post.collection == 'publications' %}
