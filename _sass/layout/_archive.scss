@@ -77,6 +77,65 @@
   }
 }
 
+.publication-meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.25rem 0.45rem;
+  margin: 0.15rem 0 0.45rem;
+  color: var(--global-text-color-light);
+  font-family: $sans-serif;
+  font-size: $type-size-6;
+  line-height: 1.45;
+}
+
+.publication-meta__label {
+  color: var(--global-text-color-light);
+}
+
+.publication-meta__year {
+  color: var(--global-text-color);
+  font-weight: 600;
+}
+
+.publication-citation {
+  margin: 0.45rem 0 0;
+  font-size: $type-size-6;
+  line-height: 1.5;
+
+  span {
+    color: var(--global-text-color-light);
+  }
+}
+
+.publication-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin: 0.55rem 0 0;
+}
+
+.publication-link {
+  display: inline-flex;
+  align-items: center;
+  min-height: 1.9rem;
+  padding: 0.25rem 0.55rem;
+  border: 1px solid var(--global-border-color);
+  border-radius: $border-radius;
+  color: var(--global-link-color);
+  font-family: $sans-serif;
+  font-size: $type-size-6;
+  line-height: 1.2;
+  text-decoration: none;
+
+  &:hover,
+  &:focus-visible {
+    border-color: var(--global-link-color);
+    color: var(--global-link-color-hover);
+    text-decoration: none;
+  }
+}
+
 .archive__item-teaser {
   border-radius: $border-radius;
   overflow: hidden;

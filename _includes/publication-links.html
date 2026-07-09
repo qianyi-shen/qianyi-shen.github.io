@@ -1,0 +1,15 @@
+{% assign item = include.item %}
+
+{% if item.paperurl or item.slidesurl or item.bibtexurl %}
+  <p class="publication-links" aria-label="Publication resources">
+    {% if item.paperurl %}
+      <a class="publication-link" href="{{ item.paperurl }}">Paper</a>
+    {% endif %}
+    {% if item.slidesurl %}
+      <a class="publication-link" href="{{ item.slidesurl }}">Slides</a>
+    {% endif %}
+    {% if item.bibtexurl %}
+      <a class="publication-link" href="{{ item.bibtexurl }}">BibTeX</a>
+    {% endif %}
+  </p>
+{% endif %}

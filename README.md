@@ -1,3 +1,20 @@
-# Qianyi Shen's Personal Website
+# Qianyi Shen
 
-This repository contains the source code for Qianyi Shen's personal website, built with the [Academic Pages](https://academicpages.github.io/) template and hosted on GitHub Pages at [https://qianyi-shen.github.io/](https://qianyi-shen.github.io/).
+This repository contains the public source for Qianyi Shen's academic homepage:
+[https://qianyi-shen.github.io/](https://qianyi-shen.github.io/).
+
+The site is built with [Academic Pages](https://academicpages.github.io/) and
+[Jekyll](https://jekyllrb.com/), and is published with GitHub Pages.
+
+## Site Sections
+
+- About and research interests
+- Publications
+- Blog Posts
+- CV
+- Hobbies
+- 中文
+
+## Credits
+
+The site builds on Academic Pages, which is based on Minimal Mistakes.

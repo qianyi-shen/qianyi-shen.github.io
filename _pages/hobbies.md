@@ -10,12 +10,16 @@ redirect_from:
 
 <!-- Qianyi enjoys many hobbies, even if he doesn’t claim to be an expert in all of them. -->
 
+<div class="academic-page academic-hobbies" markdown="1">
+
+<section class="academic-page__section hobby-section" markdown="1">
+
 ## Motorsport
 
-<div style="display: flex; justify-content: space-between; align-items: center; gap: 10px;">
-  <img src="/images/mclaren.jpg" style="width: 32%; height: auto;" loading="lazy">
-  <img src="/images/lh44.jpg" style="width: 32%; height: auto;" loading="lazy">
-  <img src="/images/ferrari.jpg" style="width: 32%; height: auto;" loading="lazy">
+<div class="hobby-gallery">
+  <img src="/images/mclaren.jpg" alt="McLaren Formula One car" loading="lazy">
+  <img src="/images/lh44.jpg" alt="Lewis Hamilton racing" loading="lazy">
+  <img src="/images/ferrari.jpg" alt="Scuderia Ferrari Formula One car" loading="lazy">
 </div>
 
 I'm a petrolhead and an enthusiastic Formula One fan.
@@ -25,11 +29,26 @@ I'm a petrolhead and an enthusiastic Formula One fan.
   - Records for the most World Drivers' Championship titles, grand prix wins, pole positions, and podium finishes in Formula One history, and still creating more records
   - Racing driver and Grand Prix winner with [McLaren](https://www.mclaren.com/racing/heritage/formula-1/drivers/lewis-hamilton/), [Mercedes-AMG](https://www.mercedesamgf1.com/) and [Scuderia Ferrari](https://www.ferrari.com/en-EN/formula1/lewis-hamilton)
 
+</section>
+
+<section class="academic-page__section hobby-section" markdown="1">
+
 ## My Cat
+
+<div class="hobby-feature" markdown="1">
+
+<div class="hobby-feature__content" markdown="1">
 
 Tracy Hua (翠花) is the superstar of our family.
 
-<div>
-<img src="/images/cuihua.jpg" loading="lazy">
 </div>
-<br>
+
+<div class="hobby-feature__media">
+  <img src="/images/cuihua.jpg" alt="Tracy Hua the cat" loading="lazy">
+</div>
+
+</div>
+
+</section>
+
+</div>
