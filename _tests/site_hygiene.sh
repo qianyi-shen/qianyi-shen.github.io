@@ -34,6 +34,20 @@ cd "$repo_root"
 JEKYLL_ENV=production bundle exec jekyll build --destination "$build_dir" --quiet
 
 assert_file_missing "$build_dir/AGENTS.md"
+assert_file_missing "$build_dir/.DS_Store"
+assert_file_missing "$build_dir/_config.yml"
+assert_file_missing "$build_dir/Gemfile"
+assert_file_missing "$build_dir/Gemfile.lock"
+assert_file_missing "$build_dir/package.json"
+assert_file_missing "$build_dir/package-lock.json"
+assert_file_missing "$build_dir/_tests"
+assert_file_missing "$build_dir/_sass"
+assert_file_missing "$build_dir/assets/js/_main.js"
+assert_file_missing "$build_dir/assets/js/plugins"
+assert_file_missing "$build_dir/vendor"
+assert_file_missing "$build_dir/.bundle"
+assert_file_missing "$build_dir/node_modules"
+assert_file_missing "$build_dir/_site"
 assert_generated_not_contains '<p class="archive__item-excerpt" itemprop="description"><p>'
 assert_generated_not_contains '"sameAs" : null'
 assert_generated_not_contains 'href="#" class="pagination--pager disabled"'
