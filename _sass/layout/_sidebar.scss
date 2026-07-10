@@ -51,7 +51,7 @@
 
   p, li {
     font-family: $sans-serif;
-    font-size: $type-size-6;
+    font-size: 0.8125rem;
     line-height: 1.5;
   }
 
@@ -84,13 +84,13 @@
 .toc {
   background-color: var(--global-toc-bg-color);
   border: 1px solid var(--global-border-color);
-  border-radius: $border-radius;
+  border-radius: var(--global-radius-panel);
   box-shadow: $box-shadow;
   padding: 1em;
 
   .nav__title {
     color: var(--global-text-color);
-    font-size: $type-size-6;
+    font-size: 0.8125rem;
     background: transparent;
     border: 0;
     padding: 0;
@@ -101,13 +101,13 @@
     padding: 0;
     width: 100%;
     list-style: none;
-    font-size: $type-size-6;
+    font-size: 0.8125rem;
 
     a {
       display: block;
       padding: 0.25rem 0;
       color: var(--global-text-color);
-      font-size: $type-size-7;
+      font-size: 0.8125rem;
       font-weight: normal;
       line-height: 1.5;
       border-bottom: 0;
@@ -159,11 +159,13 @@
     max-width: 36px;
     object-fit: cover;
     object-position: center 25%;
-    border-radius: 8px;
+    border-radius: var(--global-radius-panel);
+    background: var(--global-surface-raised-color);
 
     @include breakpoint($large) {
-      width: 175px;
+      width: 100%;
       max-width: 175px;
+      height: auto;
       padding: 5px;
       border: 1px solid var(--global-border-color);
     }
@@ -245,7 +247,7 @@
 
   button {
     margin-bottom: 0;
-    border-radius: $border-radius;
+    border-radius: var(--global-radius-control);
     cursor: pointer;
 
     @include breakpoint($large) {
@@ -253,7 +255,7 @@
     }
 
     &:focus-visible {
-      outline: 2px solid var(--global-link-color);
+      outline: 2px solid var(--global-focus-color);
       outline-offset: 2px;
     }
   }
@@ -269,15 +271,17 @@
   padding: 10px;
   list-style-type: none;
   border: 1px solid var(--global-border-color);
-  border-radius: $border-radius;
-  background: var(--global-bg-color);
+  border-radius: var(--global-radius-panel);
+  background: var(--global-surface-overlay-color);
   z-index: 25;
-  box-shadow: 0 0 10px rgba(#000, 0.25);
+  box-shadow: var(--global-shadow-overlay);
   cursor: default;
 
   @include breakpoint($large) {
     display: block;
     position: relative;
+    min-width: 0;
+    width: 100%;
     margin: 0;
     padding: 0;
     border: 0;
@@ -311,7 +315,7 @@
     width: 0;
     border-style: solid;
     border-width: 0 10px 10px;
-    border-color: #fff transparent;
+    border-color: var(--global-surface-overlay-color) transparent;
     z-index: 1;
 
     @include breakpoint($large) {
@@ -319,9 +323,12 @@
     }
   }
 
-  li {
-    white-space: nowrap;
-  }
+}
+
+.author__urls li {
+  min-width: 0;
+  white-space: normal;
+  overflow-wrap: anywhere;
 }
 
 .author__urls a,
@@ -337,7 +344,7 @@
   align-items: center;
   margin-bottom: 5px;
   padding: 2px 5px;
-  border-radius: $border-radius;
+  border-radius: var(--global-radius-control);
   text-decoration: none;
 }
 
@@ -358,7 +365,7 @@
 .author__urls a {
   &:hover,
   &:focus-visible {
-    background: rgba($primary-color, 0.12);
+    background: var(--global-hover-color);
     color: var(--global-link-color-hover);
     text-decoration: none;
   }
@@ -380,15 +387,16 @@
   cursor: pointer;
 
   &:hover,
-  &:focus {
+  &:focus-visible {
+    background: var(--global-hover-color);
     color: var(--global-link-color-hover);
     text-decoration: none;
   }
 
   &:focus-visible {
-    outline: 2px solid var(--global-link-color);
+    outline: 2px solid var(--global-focus-color);
     outline-offset: 2px;
-    border-radius: $border-radius;
+    border-radius: var(--global-radius-control);
   }
 }
 
@@ -400,15 +408,15 @@
   z-index: 30;
   margin-top: 0.35em;
   padding: 0.5em;
-  background: var(--global-bg-color);
+  background: var(--global-surface-overlay-color);
   border: 1px solid var(--global-border-color);
-  border-radius: $border-radius;
-  box-shadow: 0 0 10px rgba(#000, 0.25);
+  border-radius: var(--global-radius-panel);
+  box-shadow: var(--global-shadow-overlay);
 
   img {
     display: block;
     width: 132px;
     max-width: 70vw;
-    border-radius: $border-radius;
+    border-radius: var(--global-radius-control);
   }
 }

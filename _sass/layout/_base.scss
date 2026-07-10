@@ -260,8 +260,8 @@ figcaption {
     transition: $global-transition;
 
     &:hover {
-      color: #000;
-      border-bottom-color: #000;
+      color: var(--global-link-color-hover);
+      border-bottom-color: var(--global-link-color-hover);
     }
   }
 }
@@ -340,9 +340,30 @@ nav {
   }
 
 /* Global animation transition */
-b, i, strong, em, blockquote, p, q, span, figure, img, h1, h2, header, input, a, tr, td, form button, input[type="submit"], .btn, .highlight, .archive__item-teaser {
-  -webkit-transition: $global-transition;
+a,
+button,
+.btn,
+figure img,
+.archive__item-teaser {
   transition: $global-transition;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html:focus-within {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    animation-delay: 0s !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-delay: 0s !important;
+    transition-duration: 0.01ms !important;
+  }
 }
 
 /* ==========================================================================

@@ -88,7 +88,10 @@ exclude:
   - .bundle
   - .github
   - .jekyll-assets-cache
+  - .pnpm-store
   - .sass-cache
+  - .superpowers
+  - .worktrees
   - AGENTS.md
   - assets/js/_main.js
   - assets/js/plugins
@@ -96,6 +99,7 @@ exclude:
   - CHANGELOG
   - Capfile
   - config
+  - docs/superpowers
   - Gemfile
   - Gruntfile.js
   - gulpfile.js

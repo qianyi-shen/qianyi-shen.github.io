@@ -25,7 +25,12 @@
           animation: intro 0.3s both;
   -webkit-animation-delay: 0.45s;
           animation-delay: 0.45s;
-  border-top: 1px solid var(--global-dark-border-color);
+  border-top: 1px solid var(--global-border-color);
+
+  @media (prefers-reduced-motion: reduce) {
+    -webkit-animation-delay: 0s;
+            animation-delay: 0s;
+  }
 
   footer {
     @include clearfix;
@@ -54,6 +59,15 @@
   .far,
   .fal {
     color: var(--global-text-color-light);
+  }
+}
+
+.page__footer-hit-counter {
+  margin-bottom: 0.5rem;
+  opacity: 0.72;
+
+  img {
+    filter: grayscale(1);
   }
 }
 

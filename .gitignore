@@ -2,6 +2,9 @@
 _site/
 .sass-cache/
 .worktrees/
+.superpowers/
+.pnpm-store/
+docs/superpowers/
 
 # Ignore the directory for local files during development
 local/

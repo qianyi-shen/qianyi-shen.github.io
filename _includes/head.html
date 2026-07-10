@@ -11,6 +11,48 @@
   document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
 </script>
 
+<meta name="color-scheme" content="light dark">
+<meta
+  id="theme-color"
+  name="theme-color"
+  content="#f7f9fa"
+  data-light="#f7f9fa"
+  data-dark="#202a30">
+<script>
+  (function () {
+    var root = document.documentElement;
+    var storedTheme = null;
+    var resolvedTheme;
+
+    try {
+      storedTheme = localStorage.getItem("theme");
+    } catch (error) {
+      storedTheme = null;
+    }
+
+    if (storedTheme === "light" || storedTheme === "dark") {
+      resolvedTheme = storedTheme;
+    } else if (root.getAttribute("data-theme") === "dark") {
+      resolvedTheme = "dark";
+    } else if (window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches) {
+      resolvedTheme = "dark";
+    } else {
+      resolvedTheme = "light";
+    }
+
+    if (resolvedTheme === "dark") {
+      root.setAttribute("data-theme", "dark");
+    } else {
+      root.removeAttribute("data-theme");
+    }
+
+    var themeColor = document.getElementById("theme-color");
+    themeColor.setAttribute(
+      "content",
+      themeColor.getAttribute(resolvedTheme === "dark" ? "data-dark" : "data-light")
+    );
+  }());
+</script>
+
 <!-- For all browsers -->
 <link rel="stylesheet" href="{{ base_path }}/assets/css/main.css">
-
