@@ -7,9 +7,9 @@
   margin: 0 auto 2.5em;
   padding: 1.5em;
   border: 1px solid var(--global-border-color);
-  border-radius: $border-radius;
-  background-color: var(--global-bg-color);
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.06);
+  border-radius: var(--global-radius-panel);
+  background-color: var(--global-surface-raised-color);
+  box-shadow: var(--global-shadow-soft);
 
   p:last-child {
     margin-bottom: 0;
@@ -55,15 +55,23 @@
     color: var(--global-text-color);
     text-decoration: none;
     border: 1px solid var(--global-border-color);
-    border-radius: $border-radius;
-    background-color: rgba(127, 127, 127, 0.04);
+    border-radius: var(--global-radius-control);
+    background-color: var(--global-surface-accent-color);
     transition: $global-transition;
 
-    &:hover {
+    &:hover,
+    &:focus-visible {
       color: var(--global-link-color-hover);
       text-decoration: none;
       border-color: var(--global-base-color);
       transform: translateY(-1px);
     }
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .not-found__links a:hover,
+  .not-found__links a:focus-visible {
+    transform: none;
   }
 }

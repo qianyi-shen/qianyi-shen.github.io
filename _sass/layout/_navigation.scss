@@ -31,7 +31,7 @@
   ol {
     padding: 0;
     list-style: none;
-    font-size: $type-size-6;
+    font-size: 0.8125rem;
 
     @include breakpoint($large) {
       @include span(10 of 12 last);
@@ -89,8 +89,8 @@
       border-radius: 0;
 
       &.current {
-        color: #fff;
-        background: var(--global-base-color);
+        color: var(--global-on-action-color);
+        background: var(--global-action-color);
       }
 
       &.disabled {
@@ -100,7 +100,8 @@
       }
     }
 
-    a:hover {
+    a:hover,
+    a:focus-visible {
       color: var(--global-link-color-hover);
     }
 
@@ -138,7 +139,8 @@
     border: 1px solid var(--global-border-color);
     border-radius: $border-radius;
 
-    &:hover {
+    &:hover,
+    &:focus-visible {
       color: var(--global-link-color-hover);
     }
 
@@ -178,12 +180,12 @@
 .greedy-nav {
   position: relative;
   min-width: 250px;
-  background: var(--global-bg-color);
+  background: var(--global-surface-raised-color);
 
   a {
     display: block;
-    margin: 0 1rem;
-    padding: 0.5rem 0;
+    margin: 0 0.2rem;
+    padding: 0.5rem 0.7rem;
     color: var(--global-masthead-link-color);
     text-decoration: none;
 
@@ -192,17 +194,21 @@
     }
   }
 
-  button {
+  > button {
     position: absolute;
     height: 2.5rem;
     right: 0;
     padding: 0 0.5rem;
     border: 0;
-    outline: none;
-    background-color: var(--global-bg-color);
+    background-color: var(--global-surface-raised-color);
     color: var(--global-text-color);
     cursor: pointer;
     z-index: 100;
+
+    &:focus-visible {
+      outline: 2px solid var(--global-focus-color);
+      outline-offset: 2px;
+    }
   }
 
   .visible-links {
@@ -237,30 +243,6 @@
       }
     }
 
-    a {
-      position: relative;
-
-      &:before {
-        content: "";
-        position: absolute;
-        left: 0;
-        bottom: 0;
-        height: 4px;
-        background: var(--global-border-color);
-        width: 100%;
-        -webkit-transition: $global-transition;
-        transition: $global-transition;
-        -webkit-transform: scaleX(0);
-            -ms-transform: scaleX(0);
-                transform: scaleX(0); /* hide*/
-      }
-
-      &:hover:before {
-        -webkit-transform: scaleX(1);
-            -ms-transform: scaleX(1);
-                transform: scaleX(1); /* reveal*/
-      }
-    }
   }
 
   .hidden-links {
@@ -270,18 +252,16 @@
     margin-top: 15px;
     padding: 5px;
     border: 1px solid var(--global-border-color);
-    border-radius: $border-radius;
-    background: var(--global-bg-color);
-    box-shadow: 0 0 10px rgba(#000, 0.25);
 
     a {
       margin: 0;
       padding: 10px 20px;
       font-size: $type-size-5;
 
-      &:hover {
+      &:hover,
+      &:focus-visible {
         color: var(--global-masthead-link-color-hover);
-        background: var(--global-border-color);
+        background: var(--global-hover-color);
       }
     }
 
@@ -306,7 +286,7 @@
       width: 0;
       border-style: solid;
       border-width: 0 10px 10px;
-      border-color: var(--global-bg-color) transparent;
+      border-color: var(--global-surface-overlay-color) transparent;
       display: block;
       z-index: 1;
     }
@@ -320,6 +300,25 @@
       }
     }
   }
+}
+
+.greedy-nav .visible-links a:hover,
+.greedy-nav .visible-links a:focus-visible {
+  color: var(--global-masthead-link-color-hover);
+  background: var(--global-hover-color);
+}
+
+.greedy-nav .masthead__menu-item.selected a:focus-visible {
+  color: var(--global-text-color);
+  background: var(--global-surface-accent-color);
+  border-bottom-color: transparent;
+}
+
+.greedy-nav .hidden-links {
+  background: var(--global-surface-overlay-color);
+  border-color: var(--global-border-color);
+  border-radius: var(--global-radius-panel);
+  box-shadow: var(--global-shadow-overlay);
 }
 
 
@@ -348,13 +347,13 @@
     margin-left: -0.5em;
     padding-left: 0.5em;
     padding-right: 0.5em;
-    color: #fff;
+    color: var(--global-on-action-color);
     font-weight: bold;
-    background: var(--global-base-color);
+    background: var(--global-action-color);
     border-radius: $border-radius;
 
     &:hover {
-      color: #fff;
+      color: var(--global-on-action-color);
     }
   }
 }
@@ -372,7 +371,7 @@
   margin: 0.5rem 0;
   padding: 0.5rem 0;
   font-family: $sans-serif-narrow;
-  font-size: $type-size-6;
+  font-size: 0.8125rem;
   font-weight: bold;
   text-transform: uppercase;
   border-bottom: 1px solid var(--global-border-color);
@@ -388,17 +387,17 @@
   color: var(--global-text-color-light);
   text-transform: uppercase;
   letter-spacing: 1px;
-  background-color: #fff;
+  background-color: var(--global-toc-bg-color);
   border: 1px solid var(--global-border-color);
-  border-radius: $border-radius;
+  border-radius: var(--global-radius-panel);
   box-shadow: $box-shadow;
 
   .nav__title {
-    color: #fff;
-    font-size: $type-size-6;
-    background: var(--global-base-color);
-    border-top-left-radius: $border-radius;
-    border-top-right-radius: $border-radius;
+    color: var(--global-on-action-color);
+    font-size: 0.8125rem;
+    background: var(--global-action-color);
+    border-top-left-radius: var(--global-radius-panel);
+    border-top-right-radius: var(--global-radius-panel);
   }
 }
 
@@ -413,15 +412,16 @@
     display: block;
     padding: 0.5rem 1rem;
     color: var(--global-code-text-color);
-    font-size: $type-size-7;
+    font-size: 0.8125rem;
     font-weight: bold;
     line-height: 1.5;
     border-bottom: 1px solid var(--global-border-color);
     text-decoration-line: none !important;
 
-    &:hover {
-      color: #000;
-      background: var(--global-link-color-hover);
+    &:hover,
+    &:focus-visible {
+      color: var(--global-link-color-hover);
+      background: var(--global-hover-color);
     }
   }
 

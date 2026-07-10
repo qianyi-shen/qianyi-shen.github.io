@@ -25,9 +25,9 @@ $success-color              : #62c462;
 $warning-color              : #f89406;
 
 /* Other basic settings for the template */
-$border-radius              : 4px;
-$box-shadow                 : 0 1px 1px rgba(0, 0, 0, 0.125);
-$global-transition          : all 0.2s ease-in-out;
+$border-radius              : 0.5rem;
+$box-shadow                 : var(--global-shadow-soft);
+$global-transition          : color 160ms ease, background-color 160ms ease, border-color 160ms ease, box-shadow 160ms ease, opacity 160ms ease, transform 160ms ease;
 $masthead-height            : 70px;
 $navicon-width              : 28px;
 $navicon-height             : 4px;
@@ -36,21 +36,35 @@ $sidebar-screen-min-width   : 1024px;
 
 /* Dark theme for the site */
 html[data-theme="dark"] {
-    --global-base-color                 : #{$primary-color};
-    --global-bg-color                   : #{$background};
-    --global-footer-bg-color            : #{$background};
-    --global-border-color               : #{$light-gray};
-    --global-dark-border-color          : #{$background-light};
-    --global-code-background-color      : #fafafa;
-    --global-code-text-color            : #{$darker-gray};
-    --global-fig-caption-color          : #{$light-gray};
-    --global-link-color                 : #{$link};
-    --global-link-color-hover           : #{$link-dark};
-    --global-link-color-visited         : #{$link-light};
-    --global-masthead-link-color        : #{$text};
-    --global-masthead-link-color-hover  : #{$primary-color};
-    --global-text-color                 : #{$text};
-    --global-text-color-light           : #f3f3f3;
-    --global-thead-color                : #{$background-lighter};
+  color-scheme: dark;
+  --global-base-color: #48b7cf;
+  --global-action-color: #2f7f93;
+  --global-action-hover-color: #0f5263;
+  --global-on-action-color: #ffffff;
+  --global-bg-color: #202a30;
+  --global-surface-raised-color: #29363d;
+  --global-surface-accent-color: #173d47;
+  --global-surface-overlay-color: #303f47;
+  --global-footer-bg-color: #1c252a;
+  --global-border-color: #42535b;
+  --global-dark-border-color: #63747c;
+  --global-code-background-color: #182126;
+  --global-code-text-color: #e8f0f2;
+  --global-fig-caption-color: #aebcc1;
+  --global-link-color: #72c9dc;
+  --global-link-color-hover: #a2e2ef;
+  --global-link-color-visited: #9ec1cb;
+  --global-masthead-link-color: #eaf2f4;
+  --global-masthead-link-color-hover: #8bd8e7;
+  --global-text-color: #f3f7f8;
+  --global-text-color-light: #b8c5ca;
+  --global-thead-color: #34444c;
+  --global-toc-bg-color: #29363d;
+  --global-hover-color: #31464f;
+  --global-focus-color: #72c9dc;
+  --global-shadow-soft: 0 8px 24px rgba(0, 0, 0, 0.22);
+  --global-shadow-overlay: 0 16px 40px rgba(0, 0, 0, 0.34);
+  --global-radius-panel: 0.625rem;
+  --global-radius-control: 0.5rem;
+  --global-transition-fast: 160ms ease;
 }
-

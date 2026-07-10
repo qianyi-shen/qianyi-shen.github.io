@@ -1,5 +1,5 @@
 ---
-layout: archive
+layout: single
 title: "中文"
 permalink: /zh_cn/
 author_profile: true

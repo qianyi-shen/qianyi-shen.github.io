@@ -1,4 +1,5 @@
 ---
+layout: single
 permalink: /
 title: "沈谦逸 Qianyi Shen"
 browser_title: "沈谦逸 Qianyi Shen"

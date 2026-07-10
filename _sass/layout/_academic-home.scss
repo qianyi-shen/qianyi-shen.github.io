@@ -3,21 +3,17 @@
    ========================================================================== */
 
 .academic-home {
-  max-width: 44rem;
+  max-width: 46rem;
 }
 
 .academic-home__intro {
   margin-bottom: 1.75rem;
-  padding: 1rem 1.1rem;
+  padding: 1.15rem 1.2rem;
   border: 1px solid var(--global-border-color);
   border-left: 4px solid var(--global-base-color);
-  border-radius: $border-radius;
-  background:
-    linear-gradient(
-      90deg,
-      rgba($primary-color, 0.08),
-      rgba($primary-color, 0.015)
-    );
+  border-radius: var(--global-radius-panel);
+  background: var(--global-surface-accent-color);
+  box-shadow: var(--global-shadow-soft);
 
   > ul {
     margin: 0;
@@ -30,7 +26,13 @@
 }
 
 .academic-home__section {
-  margin-top: 1.8rem;
+  margin-top: 2rem;
+
+  > h2 {
+    margin-bottom: 0.75rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--global-border-color);
+  }
 }
 
 .academic-home__chips {
@@ -47,9 +49,9 @@
     > li {
       margin: 0;
       padding: 0.35rem 0.65rem;
-      border: 1px solid var(--global-border-color);
+      border: 1px solid var(--global-dark-border-color);
       border-radius: 999px;
-      background: rgba($primary-color, 0.12);
+      background: var(--global-surface-accent-color);
       color: var(--global-text-color);
       font-family: $sans-serif;
       font-size: $type-size-6;
@@ -74,7 +76,7 @@
       bottom: 0.25rem;
       left: 0.25rem;
       width: 1px;
-      background: var(--global-border-color);
+      background: var(--global-dark-border-color);
     }
 
     > li {
@@ -90,7 +92,7 @@
         height: 0.55rem;
         border: 2px solid var(--global-base-color);
         border-radius: 50%;
-        background: var(--global-bg-color);
+        background: var(--global-surface-raised-color);
       }
 
       > ul {
