@@ -1,3 +1,7 @@
 <script type="module" src="{{ base_path }}/assets/js/main.min.js"></script>
 
+{% if page.fitvids or layout.fitvids %}
+  <script type="module" src="{{ base_path }}/assets/js/fitvids.min.js"></script>
+{% endif %}
+
 {% include analytics.html %}

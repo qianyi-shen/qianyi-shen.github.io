@@ -17,9 +17,9 @@ redirect_from:
 ## Motorsport
 
 <div class="hobby-gallery">
-  <img src="/images/mclaren.jpg" alt="McLaren Formula One car" loading="lazy">
-  <img src="/images/lh44.jpg" alt="Lewis Hamilton racing" loading="lazy">
-  <img src="/images/ferrari.jpg" alt="Scuderia Ferrari Formula One car" loading="lazy">
+  <img src="/images/mclaren.jpg" srcset="/images/mclaren-600.jpg 600w, /images/mclaren-900.jpg 900w, /images/mclaren.jpg 1200w" sizes="(max-width: 600px) calc(100vw - 2rem), 30vw" width="1200" height="675" alt="McLaren Formula One car" loading="lazy" decoding="async">
+  <img src="/images/lh44.jpg" srcset="/images/lh44-600.jpg 600w, /images/lh44-900.jpg 900w, /images/lh44.jpg 1200w" sizes="(max-width: 600px) calc(100vw - 2rem), 30vw" width="1200" height="675" alt="Lewis Hamilton racing" loading="lazy" decoding="async">
+  <img src="/images/ferrari.jpg" srcset="/images/ferrari-600.jpg 600w, /images/ferrari-900.jpg 900w, /images/ferrari.jpg 1250w" sizes="(max-width: 600px) calc(100vw - 2rem), 30vw" width="1250" height="703" alt="Scuderia Ferrari Formula One car" loading="lazy" decoding="async">
 </div>
 
 I'm a petrolhead and an enthusiastic Formula One fan.
@@ -44,7 +44,7 @@ Tracy Hua (翠花) is the superstar of our family.
 </div>
 
 <div class="hobby-feature__media">
-  <img src="/images/cuihua.jpg" alt="Tracy Hua the cat" loading="lazy">
+  <img src="/images/cuihua.jpg" srcset="/images/cuihua-420.jpg 420w, /images/cuihua-840.jpg 840w, /images/cuihua.jpg 1280w" sizes="(max-width: 600px) calc(100vw - 2rem), 420px" width="1280" height="720" alt="Tracy Hua the cat" loading="lazy" decoding="async">
 </div>
 
 </div>
