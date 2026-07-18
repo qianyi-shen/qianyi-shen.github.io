@@ -4,7 +4,25 @@
 /* Font Awesome uses the Unicode Private Use Area (PUA) to ensure screen
 readers do not read off random characters that represent icons */
 
-@each $name, $icon in $fa-icons {
-  .#{$fa-css-prefix}-#{$name}::before { content: unquote("\"#{ $icon }\""); }
-}
+$fa-used-icons: (
+  building-columns,
+  calendar,
+  clock,
+  envelope,
+  file-text,
+  folder-open,
+  globe,
+  link,
+  location-dot,
+  map-marker-alt,
+  moon,
+  phone,
+  sun,
+  tags
+);
 
+@each $name in $fa-used-icons {
+  .#{$fa-css-prefix}-#{$name}::before {
+    content: unquote("\"#{ map-get($fa-icons, $name) }\"");
+  }
+}
