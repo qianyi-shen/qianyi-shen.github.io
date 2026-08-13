@@ -4,6 +4,7 @@ permalink: /
 title: "沈谦逸 Qianyi Shen"
 browser_title: "沈谦逸 Qianyi Shen"
 author_profile: true
+visit_counter: true
 redirect_from: 
   - /about/
   - /about.html
@@ -27,9 +28,9 @@ redirect_from:
 
 - Vehicle Motion Control (VMC)
 - Chassis Domain Control (CDC)
-- Autonomous Driving (AD)
+- Automated Driving (AD)
 - Learning-based Model Predictive Control
-- Multi-Agent Systems
+- End-To-End Chassis Control Framework
 
 </div>
 

@@ -25,8 +25,8 @@ redirect_from:
 I'm a petrolhead and an enthusiastic Formula One fan.
 
 - Favourite racing driver: **Lewis Hamilton #44**
-  - Seven-time Formula One World Drivers’ Champion (2008, 2014, 2015, 2017, 2018, 2019, 2020, and should be 2021)
-  - Records for the most World Drivers' Championship titles, grand prix wins, pole positions, and podium finishes in Formula One history, and still creating more records
+  - Seven-time Formula One World Drivers’ Champion (2008, 2014, 2015, 2017, 2018, 2019, 2020, and **should be 2021**)
+  - Records for the most World Drivers' Championship titles, grand prix victories, pole positions, and podium finishes in Formula One history, and still creating more records
   - Racing driver and Grand Prix winner with [McLaren](https://www.mclaren.com/racing/heritage/formula-1/drivers/lewis-hamilton/), [Mercedes-AMG](https://www.mercedesamgf1.com/) and [Scuderia Ferrari](https://www.ferrari.com/en-EN/formula1/lewis-hamilton)
 
 </section>

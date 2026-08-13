@@ -1,0 +1,17 @@
+{% if site.visit_counter.provider == "goatcounter" and site.visit_counter.site_code %}
+  {% assign legacy_count = site.visit_counter.legacy_count | default: 0 %}
+  <div class="academic-home__visit-stat" aria-label="Total site visits">
+    <div class="academic-home__visit-summary">
+      <span class="academic-home__visit-mark" aria-hidden="true">&#9673;</span>
+      <span>Site visits</span>
+      <strong
+        class="academic-home__visit-value"
+        aria-live="polite"
+        data-visit-count
+        data-legacy-count="{{ legacy_count }}"
+        data-count-url="https://{{ site.visit_counter.site_code }}.goatcounter.com/counter/TOTAL.json"
+      >{{ legacy_count }}</strong>
+    </div>
+    <span class="academic-home__visit-since">Since August 2026</span>
+  </div>
+{% endif %}
