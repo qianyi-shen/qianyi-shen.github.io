@@ -41,6 +41,10 @@ I'm a petrolhead and an enthusiastic Formula One fan.
 
 Tracy Hua (翠花) is the superstar of our family.
 
+- Born in March 2022
+- Female Cat
+- A mixed breed cat with British blue fur and golden tabby markings
+
 </div>
 
 <div class="hobby-feature__media">

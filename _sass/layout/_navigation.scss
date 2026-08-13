@@ -178,6 +178,10 @@
 
 .greedy-nav {
   position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto auto;
+  align-items: center;
+  column-gap: 0.25rem;
   min-width: 250px;
   background: var(--global-surface-raised-color);
 
@@ -194,9 +198,11 @@
   }
 
   > button {
-    position: absolute;
+    position: static;
+    grid-column: 2;
+    grid-row: 1;
+    width: 2.5rem;
     height: 2.5rem;
-    right: 0;
     padding: 0 0.5rem;
     border: 0;
     background-color: var(--global-surface-raised-color);
@@ -211,7 +217,11 @@
   }
 
   .visible-links {
+    grid-column: 1;
+    grid-row: 1;
+    justify-self: start;
     display: table;
+    width: max-content;
 
     li {
       display: table-cell;
@@ -226,28 +236,22 @@
         }
       }
 
-      &:last-child {
-        a {
-          margin-right: 0;
-        }
+      &:last-child a {
+        margin-right: 0;
       }
     }
+  }
 
-    #theme-toggle {
-      a {
-        width: 25px;
-        display: flex;
-        justify-content: center;
-        cursor: pointer;
-      }
-    }
-
+  #theme-toggle {
+    grid-column: 3;
+    grid-row: 1;
+    width: 2.5rem;
   }
 
   .hidden-links {
     position: absolute;
     top: 100%;
-    right: 0;
+    right: 2.75rem;
     margin-top: 15px;
     padding: 5px;
     border: 1px solid var(--global-border-color);
