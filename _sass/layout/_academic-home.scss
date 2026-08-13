@@ -102,6 +102,46 @@
   }
 }
 
+.academic-home__visit-stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.15rem;
+  max-width: 46rem;
+  margin-top: 2.25rem;
+  padding-top: 0.85rem;
+  border-top: 1px solid var(--global-border-color);
+  color: var(--global-text-color-light);
+  font-family: $sans-serif;
+  font-size: 0.8125rem;
+  line-height: 1.4;
+  text-align: center;
+}
+
+.academic-home__visit-summary {
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  gap: 0.45rem;
+  color: var(--global-text-color);
+  font-size: 0.9rem;
+  white-space: nowrap;
+}
+
+.academic-home__visit-mark {
+  color: var(--global-base-color);
+  font-size: 0.8em;
+}
+
+.academic-home__visit-value {
+  font-variant-numeric: tabular-nums;
+  font-weight: 700;
+}
+
+.academic-home__visit-since {
+  font-size: 0.8125rem;
+}
+
 @include breakpoint(max-width $small) {
   .academic-home {
     max-width: none;

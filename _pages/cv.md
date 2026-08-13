@@ -44,7 +44,7 @@ redirect_from:
 <div class="academic-chip-list" markdown="1">
 
 * **CET-6: 616**
-* Paper writing and presentation skills
+* Paper writing, oral presentation and communication skills
 
 </div>
 
@@ -59,9 +59,7 @@ redirect_from:
 * Vehicle Motion Control
 * Chassis Domain Control
 * Vehicle System Dynamics
-* **CarSim**
-* **Python**
-* **ROS2**
+* **CarSim**, **Python**, **ROS2**, ...
 
 </div>
 
@@ -76,9 +74,7 @@ redirect_from:
 * Model Predictive Control
 * State Estimation Theories
 * Optimal Control
-* **MATLAB**
-* **Python**
-* **CasADi**
+* **CasADi**, **TurboMPC**, **mpc.pytorch**, ...
 
 </div>
 
@@ -90,10 +86,8 @@ redirect_from:
 
 <div class="academic-chip-list" markdown="1">
 
-* **PyTorch**
-* **CUDA**
-* **NVIDIA Jetson Orin/Thor**
-* **Ubuntu**
+* Diving deep into Reinforcement Learning (RL) and its combination with end-to-end control
+* **PyTorch**, **CUDA**, **NVIDIA Jetson Orin/Thor**, **Ubuntu**, ...
 
 </div>
 
@@ -109,13 +103,12 @@ redirect_from:
 
 <div class="academic-awards academic-home__timeline" markdown="1">
 
-* July 2025, **Best Bachelor’s Thesis Award** (top 1/200), Jiangnan University.
-  * Nominated as a leading candidate for the Jiangsu Provincial Best Bachelor’s Thesis Award (results pending).
-* June 2025, “Zhi Shan” Special Honors Graduate, Honors School, Jiangnan University (awarded to 8 graduates out of 4,000).
-* December 2022, **China National Scholarship** (the highest national scholarship for undergraduate students in China)
-* December 2022, First-Class Scholarship of Jiangnan University
+* July 2025, **Best Bachelor’s Thesis Award**, Jiangnan University.
+* June 2025, Zhi Shan Special Honors Graduate, Honors School, Jiangnan University (awarded to 8 graduates out of 4,000).
 * May 2024, Infineon Technologies Scholarship
-* December 2022, Second Prize (National Level), China Undergraduate Mathematical Contest in Modeling ([CUMCM](https://www.mcm.edu.cn/)), with Mengyuan Xu and Jinhong You.
+* December 2022, **China National Scholarship**, Ministry of Education
+* December 2022, First-Class Scholarship, Jiangnan University
+* December 2022, Second Prize, China Undergraduate Mathematical Contest in Modeling ([CUMCM](https://www.mcm.edu.cn/)), with Mengyuan Xu and Jinhong You.
 
 </div>
 

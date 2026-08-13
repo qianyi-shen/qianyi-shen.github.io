@@ -59,6 +59,10 @@ layout: default
       <section class="page__content" itemprop="text">
         {{ content }}
 
+        {% if page.visit_counter %}
+          {% include visit-counter.html %}
+        {% endif %}
+
         {% if page.citation or page.paperurl or page.slidesurl or page.bibtexurl %}
           <p style="font-size: smaller">
             {% if page.citation %}Recommended citation: {{ page.citation }}{% if page.paperurl or page.slidesurl or page.bibtexurl %}<br />{% endif %}{% endif %}

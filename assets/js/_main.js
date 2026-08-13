@@ -53,6 +53,43 @@ const toggleTheme = () => {
   setTheme(newTheme);
 };
 
+const formatVisitCount = (count) => {
+  try {
+    return new Intl.NumberFormat(document.documentElement.lang || 'en-US').format(count);
+  } catch (error) {
+    return String(count);
+  }
+};
+
+const updateVisitCount = () => {
+  const counter = document.querySelector('[data-visit-count]');
+  if (!counter) return;
+
+  const legacyCount = Number.parseInt(counter.getAttribute('data-legacy-count'), 10) || 0;
+  const countUrl = counter.getAttribute('data-count-url');
+  counter.textContent = formatVisitCount(legacyCount);
+
+  if (!countUrl || !window.fetch) return;
+
+  window.fetch(countUrl, {
+    credentials: 'omit',
+    mode: 'cors',
+  })
+    .then((response) => {
+      if (!response.ok) throw new Error('Visit count request failed');
+      return response.json();
+    })
+    .then((data) => {
+      const currentCount = Number.parseInt(String(data.count || '').replace(/[^0-9]/g, ''), 10);
+      if (Number.isFinite(currentCount)) {
+        counter.textContent = formatVisitCount(legacyCount + currentCount);
+      }
+    })
+    .catch(() => {
+      // Keep showing the historical count when the service is unavailable or blocked.
+    });
+};
+
 /* ==========================================================================
    Actions that should occur when the page has been fully loaded
    ========================================================================== */
@@ -62,6 +99,8 @@ $(document).ready(function () {
   const scssLarge = 925;          // pixels, from /_sass/_themes.scss
   const scssMastheadHeight = 70;  // pixels, from the current theme (e.g., /_sass/theme/_default.scss)
   const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  updateVisitCount();
 
   // If the user hasn't chosen a theme, follow the OS preference
   setTheme();

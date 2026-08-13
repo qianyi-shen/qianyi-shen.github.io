@@ -18,7 +18,7 @@ author:
   location         : "Shanghai, China"
   employer         : "Tongji University"
   email            : "qyshen@tongji.edu.cn"
-  wechat           : "Quattrologist_44"
+  wechat           : "WeChat"
   wechat_qr        : "wechat-qr.jpg"
 
   googlescholar    : "https://scholar.google.com/citations?user=nIqW0qsAAAAJ&hl=en"
@@ -75,6 +75,13 @@ analytics:
   provider               : "false"
   google:
     tracking_id          :
+
+# Public visit counter
+visit_counter:
+  provider               : "goatcounter"
+  site_code              : "qianyi-shen"
+  production_host        : "qianyi-shen.github.io"
+  legacy_count           : 878
 
 # Reading Files
 include:
