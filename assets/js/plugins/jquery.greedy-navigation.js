@@ -8,17 +8,35 @@
 var $nav = $('#site-nav');
 var $btn = $('#site-nav button');
 var $vlinks = $('#site-nav .visible-links');
-var $vlinks_persist_tail = $vlinks.children("*.persist.tail");
 var $hlinks = $('#site-nav .hidden-links');
+var $themeToggle = $('#theme-toggle');
 
 var breaks = [];
 
+function getAvailableSpace(showMenuButton) {
+  var columnGap = parseFloat($nav.css('column-gap')) || 0;
+  var controlsWidth = $themeToggle.outerWidth(true) + (columnGap * 2);
+
+  if (showMenuButton) {
+    controlsWidth += $btn.outerWidth(true);
+  }
+
+  return $nav.innerWidth() - controlsWidth;
+}
+
 function updateNav() {
 
-  var availableSpace = $btn.hasClass('hidden') ? $nav.width() : $nav.width() - $btn.width() - 30;
+  var menuButtonVisible = !$btn.hasClass('hidden');
+  var availableSpace = getAvailableSpace(menuButtonVisible);
 
   // The visible list is overflowing the nav
   if ($vlinks.width() > availableSpace) {
+
+    if (!menuButtonVisible) {
+      $btn.removeClass('hidden');
+      menuButtonVisible = true;
+      availableSpace = getAvailableSpace(true);
+    }
 
     while ($vlinks.width() > availableSpace && $vlinks.children("*:not(.persist)").length > 0) {
       // Record the width of the list
@@ -27,23 +45,23 @@ function updateNav() {
       // Move item to the hidden list
       $vlinks.children("*:not(.persist)").last().prependTo($hlinks);
 
-      availableSpace = $btn.hasClass("hidden") ? $nav.width() : $nav.width() - $btn.width() - 30;
-
-      // Show the dropdown btn
-      $btn.removeClass("hidden");
+      availableSpace = getAvailableSpace(true);
     }
 
     // The visible list is not overflowing
   } else {
 
     // There is space for another item in the nav
-    while (breaks.length > 0 && availableSpace > breaks[breaks.length - 1]) {
-      // Move the item to the visible list
-      if ($vlinks_persist_tail.children().length > 0) {
-        $hlinks.children().first().insertBefore($vlinks_persist_tail);
-      } else {
-        $hlinks.children().first().appendTo($vlinks);
+    while (breaks.length > 0) {
+      var restoringLastItem = breaks.length === 1;
+      var restorationSpace = getAvailableSpace(!restoringLastItem);
+
+      if (restorationSpace <= breaks[breaks.length - 1]) {
+        break;
       }
+
+      // Move the item to the visible list
+      $hlinks.children().first().appendTo($vlinks);
       breaks.pop();
     }
 

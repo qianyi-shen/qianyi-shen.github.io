@@ -43,8 +43,19 @@ redirect_from:
 
 <div class="academic-chip-list" markdown="1">
 
-* **CET-6: 616**
 * Paper writing, oral presentation and communication skills
+
+</div>
+
+<div class="academic-skill-detail academic-skill-detail--credential" markdown="1">
+
+<p class="academic-skill-detail__label">Credential</p>
+
+<div class="academic-credential-list" markdown="1">
+
+* CET-6: 616
+
+</div>
 
 </div>
 
@@ -59,7 +70,21 @@ redirect_from:
 * Vehicle Motion Control
 * Chassis Domain Control
 * Vehicle System Dynamics
-* **CarSim**, **Python**, **ROS2**, ...
+
+</div>
+
+<div class="academic-skill-detail academic-skill-detail--toolchain" markdown="1">
+
+<p class="academic-skill-detail__label">Toolchain</p>
+
+<div class="academic-tech-list" markdown="1">
+
+* CarSim
+* Python
+* ROS2
+* ...
+
+</div>
 
 </div>
 
@@ -74,7 +99,21 @@ redirect_from:
 * Model Predictive Control
 * State Estimation Theories
 * Optimal Control
-* **CasADi**, **TurboMPC**, **mpc.pytorch**, ...
+
+</div>
+
+<div class="academic-skill-detail academic-skill-detail--toolchain" markdown="1">
+
+<p class="academic-skill-detail__label">Toolchain</p>
+
+<div class="academic-tech-list" markdown="1">
+
+* CasADi
+* TurboMPC
+* mpc.pytorch
+* ...
+
+</div>
 
 </div>
 
@@ -87,7 +126,22 @@ redirect_from:
 <div class="academic-chip-list" markdown="1">
 
 * Diving deep into Reinforcement Learning (RL) and its combination with end-to-end control
-* **PyTorch**, **CUDA**, **NVIDIA Jetson Orin/Thor**, **Ubuntu**, ...
+
+</div>
+
+<div class="academic-skill-detail academic-skill-detail--toolchain" markdown="1">
+
+<p class="academic-skill-detail__label">Toolchain</p>
+
+<div class="academic-tech-list" markdown="1">
+
+* PyTorch
+* CUDA
+* NVIDIA Jetson Orin/Thor
+* Ubuntu
+* ...
+
+</div>
 
 </div>
 
