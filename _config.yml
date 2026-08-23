@@ -72,7 +72,7 @@ social:
 
 # Analytics
 analytics:
-  provider               : "false"
+  provider               : false
   google:
     tracking_id          :
 
@@ -100,7 +100,6 @@ exclude:
   - .superpowers
   - .worktrees
   - AGENTS.md
-  - assets/js/_fitvids.js
   - assets/js/_main.js
   - assets/js/plugins
   - assets/js/vendor
