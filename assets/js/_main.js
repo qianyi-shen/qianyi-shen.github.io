@@ -96,8 +96,7 @@ const updateVisitCount = () => {
 
 $(document).ready(function () {
   // SCSS SETTINGS - These should be the same as the settings in the relevant files 
-  const scssLarge = 925;          // pixels, from /_sass/_themes.scss
-  const scssMastheadHeight = 70;  // pixels, from the current theme (e.g., /_sass/theme/_default.scss)
+  const scssLarge = 925;  // pixels, from /_sass/_themes.scss
   const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   updateVisitCount();
@@ -152,13 +151,5 @@ $(document).ready(function () {
       $(".author__urls").css('display', 'block')
     }
   });
-
-  // Init smooth scroll, this needs to be slightly more than then fixed masthead height
-  if (!prefersReducedMotion) {
-    $("a").smoothScroll({
-      offset: -scssMastheadHeight,
-      preventDefault: false,
-    });
-  }
 
 });

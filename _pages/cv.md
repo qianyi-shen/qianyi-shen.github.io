@@ -6,8 +6,6 @@ redirect_from:
   - /resume
 ---
 
-{% include base_path %}
-
 <div class="academic-page academic-cv" markdown="1">
 
 <section class="academic-page__section academic-cv__education" markdown="1">

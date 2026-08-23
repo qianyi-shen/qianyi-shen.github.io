@@ -7,8 +7,6 @@ redirect_from:
   - /zh_cn.html
 ---
 
-{% include base_path %}
-
 <div class="academic-home">
 
 <section class="academic-home__intro" markdown="1">

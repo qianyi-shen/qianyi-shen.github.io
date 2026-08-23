@@ -2,8 +2,6 @@
 layout: default
 ---
 
-{% include base_path %}
-
 {% if page.header.overlay_color or page.header.overlay_image or page.header.image %}
   {% include page__hero.html %}
 {% endif %}
@@ -94,12 +92,25 @@ layout: default
         {% if page.link %}<div><a href="{{ page.link }}" class="btn">{{ site.data.ui-text[site.locale].ext_link_label | default: "Direct Link" }}</a></div>{% endif %}
       </section>
 
-      <footer class="page__meta">
-        {% if site.data.ui-text[site.locale].meta_label %}
-          <h4 class="page__meta-title">{{ site.data.ui-text[site.locale].meta_label }}</h4>
-        {% endif %}
-        {% include page__taxonomy.html %}
-      </footer>
+      {% assign show_page_meta = false %}
+      {% if site.data.ui-text[site.locale].meta_label %}
+        {% assign show_page_meta = true %}
+      {% endif %}
+      {% if site.tag_archive.type and page.tags[0] %}
+        {% assign show_page_meta = true %}
+      {% endif %}
+      {% if site.category_archive.type and page.categories[0] and page.collection != 'publications' %}
+        {% assign show_page_meta = true %}
+      {% endif %}
+
+      {% if show_page_meta %}
+        <footer class="page__meta">
+          {% if site.data.ui-text[site.locale].meta_label %}
+            <h4 class="page__meta-title">{{ site.data.ui-text[site.locale].meta_label }}</h4>
+          {% endif %}
+          {% include page__taxonomy.html %}
+        </footer>
+      {% endif %}
 
       {% if page.share %}{% include social-share.html %}{% endif %}
 
