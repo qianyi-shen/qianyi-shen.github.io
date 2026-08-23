@@ -48,6 +48,19 @@ layout: default
         
         {% if page.collection == 'teaching' %}
           <p> {{ page.type }}, <i>{{ page.venue }}</i>, {{ page.date | default: "1900-01-01" | date: "%Y" }} </p>
+        {% elsif page.collection == 'publications' and page.publication_status == 'submitted' %}
+          <p class="publication-meta publication-meta--submitted">
+            <span class="publication-meta__label">Submitted</span>
+            {% if page.submission_venue %}
+              <span class="publication-meta__status">to <i>{{ page.submission_venue }}</i></span>
+            {% endif %}
+            {% if page.publication_status_note %}
+              <span class="publication-meta__status">({{ page.publication_status_note }})</span>
+            {% endif %}
+            {% if page.date %}
+              <time class="publication-meta__year" datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%Y" }}</time>
+            {% endif %}
+          </p>
         {% elsif page.venue and page.date %}
           <p>Published in <i>{{ page.venue }}</i>, {{ page.date | default: "1900-01-01" | date: "%Y" }} </p>
         {% elsif page.date %}
@@ -63,7 +76,12 @@ layout: default
           {% include visit-counter.html %}
         {% endif %}
 
-        {% if page.citation or page.paperurl or page.slidesurl or page.bibtexurl %}
+        {% if page.collection == 'publications' %}
+          {% if page.citation %}
+            <p class="publication-citation"><span>Recommended citation:</span> {{ page.citation }}</p>
+          {% endif %}
+          {% include publication-links.html item=page %}
+        {% elsif page.citation or page.paperurl or page.slidesurl or page.bibtexurl %}
           <p style="font-size: smaller">
             {% if page.citation %}Recommended citation: {{ page.citation }}{% if page.paperurl or page.slidesurl or page.bibtexurl %}<br />{% endif %}{% endif %}
             {% assign has_resource_link = false %}

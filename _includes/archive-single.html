@@ -53,6 +53,9 @@
       <p class="publication-meta publication-meta--{{ publication_status | slugify }}">
         {% if publication_status == "submitted" %}
           <span class="publication-meta__label">Submitted</span>
+          {% if post.submission_venue %}
+            <span class="publication-meta__status">to <i>{{ post.submission_venue }}</i></span>
+          {% endif %}
           {% if post.publication_status_note %}
             <span class="publication-meta__status">({{ post.publication_status_note }})</span>
           {% endif %}
