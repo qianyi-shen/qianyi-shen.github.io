@@ -1,18 +1,17 @@
 ---
-title: "Learning-based Control for Intelligent Vehicle Motion Control: A Review and Perspective"
+title: "Learning-Based Motion Control for Intelligent Vehicles: A Taxonomy from a Closed-Loop Control Perspective"
 collection: publications
 category: manuscripts
 permalink: /publication/survey-lbc
-excerpt: 'A comprehensive and unified review of learning-based control methods for intelligent vehicle motion control, covering the latest advancements in the field and discussing future research directions.'
+excerpt: 'A closed-loop review of learning-based vehicle motion control that organizes the literature into Model Learning, Policy Learning, and Safety Constraint Learning, and relates their distinct error paths to validation and real-time evidence.'
 date: 2026-4-25
 publication_status: submitted
-publication_status_note: 'under review'
-# slidesurl: '/files/slides1.pdf'
+submission_venue: 'IEEE T-ITS'
+slidesurl: '/files/lbc-survey-poster.pdf'
+slides_label: 'Chinese Poster'
 # paperurl: '/files/paper1.pdf'
 # bibtexurl: '/files/bibtex1.bib'
 # citation: 'Your Name, You. (2009). &quot;Paper Title Number 1.&quot; <i>Journal 1</i>. 1(1).'
 ---
 
-This survey provides a comprehensive review of learning-based control methods for intelligent vehicle motion control, covering the latest advancements in the field. The paper systematically categorizes and analyzes various techniques, including model learning, policy learning, and safety constraint learning. The applications of these methods and future research directions are also discussed in detail.
-
-Related sources will be added after the paper is officially published, including slides (PDF), paper (PDF) and citation information.
+Intelligent vehicle motion control must handle nonlinear dynamics, uncertain tire-road conditions, actuator limits, and rapidly changing commands, often with imperfect models and tight computation budgets. This survey proposes a closed-loop taxonomy based on where learning acts: Model Learning changes prediction, Policy Learning changes command generation, and Safety Constraint Learning defines or enforces admissible actions. The review compares representative methods and vehicle applications across control performance, safety, runtime feasibility, and verifiability. It also traces each class's error paths and covers validation, online updates, monitoring, and fallback behavior. A Chinese-language poster is available below.

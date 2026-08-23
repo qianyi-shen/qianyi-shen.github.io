@@ -6,7 +6,7 @@
       <a class="publication-link" href="{{ item.paperurl }}">Paper</a>
     {% endif %}
     {% if item.slidesurl %}
-      <a class="publication-link" href="{{ item.slidesurl }}">Slides</a>
+      <a class="publication-link" href="{{ item.slidesurl }}">{{ item.slides_label | default: "Slides" | escape }}</a>
     {% endif %}
     {% if item.bibtexurl %}
       <a class="publication-link" href="{{ item.bibtexurl }}">BibTeX</a>

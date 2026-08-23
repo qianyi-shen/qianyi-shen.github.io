@@ -176,7 +176,8 @@
   }
 }
 
-.archive a.publication-link {
+.archive a.publication-link,
+.page__content a.publication-link {
   text-decoration: none;
 
   &:hover,
