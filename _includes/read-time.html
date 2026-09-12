@@ -1,41 +1,50 @@
+{% assign reading_item = include.item | default: page %}
 {% assign minute_read_singular = site.data.ui-text[site.locale].minute_read | default: "minute read" %}
 {% assign minute_read_plural = site.data.ui-text[site.locale].minute_read_plural | default: "minutes read" %}
+{% assign forced_minutes = reading_item.read_time_minutes | default: 0 | plus: 0 %}
+{% assign words_per_minute = site.words_per_minute | default: 160 | plus: 0 %}
+{% if words_per_minute <= 0 %}{% assign words_per_minute = 160 %}{% endif %}
+{% assign cjk_per_minute = site.cjk_characters_per_minute | default: 275 | plus: 0 %}
+{% if cjk_per_minute <= 0 %}{% assign cjk_per_minute = 275 %}{% endif %}
 
-{% assign forced_minutes = nil %}
-{% if post and post.read_time_minutes %}
-  {% assign forced_minutes = post.read_time_minutes %}
-{% elsif page and page.read_time_minutes %}
-  {% assign forced_minutes = page.read_time_minutes %}
+{% if forced_minutes > 0 %}
+  {% assign minutes = forced_minutes %}
+{% else %}
+  {% assign characters = reading_item.content | markdownify | strip_html | split: '' %}
+  {% assign cjk_count = 0 %}
+  {%- capture latin_text -%}
+    {%- for character in characters -%}
+      {%- if character >= '㐀' and character <= '鿿' -%}
+        {%- assign cjk_count = cjk_count | plus: 1 -%}{{ ' ' }}
+      {%- elsif character >= 'ぁ' and character <= 'ヿ' -%}
+        {%- assign cjk_count = cjk_count | plus: 1 -%}{{ ' ' }}
+      {%- elsif character >= '가' and character <= '힣' -%}
+        {%- assign cjk_count = cjk_count | plus: 1 -%}{{ ' ' }}
+      {%- elsif character >= 'A' and character <= 'Z' -%}
+        {{ character }}
+      {%- elsif character >= 'a' and character <= 'z' -%}
+        {{ character }}
+      {%- elsif character >= '0' and character <= '9' -%}
+        {{ character }}
+      {%- elsif character >= 'À' and character <= 'ɏ' -%}
+        {{ character }}
+      {%- else -%}
+        {{ ' ' }}
+      {%- endif -%}
+    {%- endfor -%}
+  {%- endcapture -%}
+  {% assign words = latin_text | number_of_words %}
+  {% assign latin_minutes = words | times: 1.0 | divided_by: words_per_minute %}
+  {% assign cjk_minutes = cjk_count | times: 1.0 | divided_by: cjk_per_minute %}
+  {% assign extra_minutes = reading_item.read_time_extra_minutes | default: 0 | plus: 0 %}
+  {% if extra_minutes < 0 %}{% assign extra_minutes = 0 %}{% endif %}
+  {% assign minutes = latin_minutes | plus: cjk_minutes | plus: extra_minutes | ceil %}
 {% endif %}
 
-{% if forced_minutes %}
-  {% assign forced_value = forced_minutes | plus: 0 %}
-  {% if forced_value == 1 %}
-    {{ forced_value }} {{ minute_read_singular }}
-  {% else %}
-    {{ forced_value }} {{ minute_read_plural }}
-  {% endif %}
+{% if minutes < 1 %}
+  {{ site.data.ui-text[site.locale].less_than | default: "less than" }} 1 {{ minute_read_singular }}
+{% elsif minutes == 1 %}
+  1 {{ minute_read_singular }}
 {% else %}
-  {% if post.read_time %}
-    {% assign words = post.content | strip_html | number_of_words %}
-  {% elsif page.read_time %}
-    {% assign words = page.content | strip_html | number_of_words %}
-  {% endif %}
-
-  {% if site.words_per_minute %}
-    {% if words < 180 %}
-      {{ site.data.ui-text[site.locale].less_than | default: "less than" }} 1 {{ minute_read_singular }}
-    {% elsif words < 360 %}
-      1 {{ minute_read_singular }}
-    {% else %}
-      {% assign calculated_minutes = words | divided_by:site.words_per_minute %}
-      {% if calculated_minutes == 1 %}
-        {{ calculated_minutes }} {{ minute_read_singular }}
-      {% else %}
-        {{ calculated_minutes }} {{ minute_read_plural }}
-      {% endif %}
-    {% endif %}
-  {% else %}
-    {{ site.data.ui-text[site.locale].undefined_wpm | "Undefined parameter words_per_minute at _config.yml" }}
-  {% endif %}
+  {{ minutes }} {{ minute_read_plural }}
 {% endif %}

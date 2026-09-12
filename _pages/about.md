@@ -1,22 +1,20 @@
 ---
-layout: single
-permalink: /
+layout: "single"
+permalink: "/"
 title: "沈谦逸 Qianyi Shen"
 browser_title: "沈谦逸 Qianyi Shen"
 author_profile: true
+lang: "en"
 visit_counter: true
-redirect_from: 
-  - /about/
-  - /about.html
 ---
 
 <div class="academic-home">
 
 <section class="academic-home__intro" markdown="1">
 
-- Ph.D. student in Control Science and Engineering, at the [College of Electronic and Information Engineering](https://see.tongji.edu.cn/) (CEIE), [Tongji University](https://www.tongji.edu.cn/)
-  - Supervisor: **[Prof. Jie Chen](https://www.tongji.edu.cn/info/1136/21221.htm) (IEEE Fellow, IFAC Fellow, Academician of the Chinese Academy of Engineering)**
-  - Collaborates with [Prof. Hong Chen](https://see.tongji.edu.cn/info/1376/10290.htm) (IEEE Fellow) and [Assoc. Prof. Lin Zhang](https://faculty.tongji.edu.cn/zhanglin123456/zh_CN/index.htm)
+I am pursuing my Ph.D. in Control Science and Engineering at [Tongji University](https://www.tongji.edu.cn/).
+
+My research focuses on vehicle motion control and chassis control, with an emphasis on advanced learning-based control policies.
 
 </section>
 
@@ -24,13 +22,30 @@ redirect_from:
 
 ## Research Interests
 
-<div class="academic-home__chips" markdown="1">
+My research is driven by a long-standing interest in **automobiles** and **motorsports**.
 
-- Vehicle Motion Control (VMC)
-- Chassis Domain Control (CDC)
-- Automated Driving (AD)
-- Learning-based Model Predictive Control
-- End-To-End Chassis Control Framework
+<div class="academic-home__research" markdown="1">
+
+<div class="academic-home__research-group" markdown="1">
+
+### Methodology
+
+- Reinforcement Learning
+- Differentiable MPC
+- Learning-based Control
+- End-to-End Control Frameworks
+
+</div>
+
+<div class="academic-home__research-group" markdown="1">
+
+### Applications
+
+- Vehicle Motion Control
+- Chassis Domain Control
+- Automated Driving
+
+</div>
 
 </div>
 
@@ -38,18 +53,17 @@ redirect_from:
 
 <section class="academic-home__section" markdown="1">
 
-## Biography
+## Education
 
-### Education
 <div class="academic-home__timeline" markdown="1">
 
-- 2021.09-2025.06, B.Eng., [School of Automation and Intelligent Science](https://iot.jiangnan.edu.cn/), [Jiangnan University](https://www.jiangnan.edu.cn/), Wuxi, China.
-  - Supervisor: [Prof. Ziyun Wang](https://iot.jiangnan.edu.cn/info/1141/3583.htm)
-  - 2022.06-2025.06, [Honors School](https://honorschool.jiangnan.edu.cn/) student, supervised by [Prof. Yan Wang](https://iot.jiangnan.edu.cn/info/1141/3534.htm)
-    - A prestigious research program admitting approximately the top 5% of undergraduate students
-- 2025.09-Present, Ph.D., [College of Electronic and Information Engineering](https://see.tongji.edu.cn/), [Tongji University](https://www.tongji.edu.cn/), Shanghai, China.
-  - Supervisor: [Prof. Jie Chen](https://www.tongji.edu.cn/info/1136/21221.htm)
-  - Collaborates with [Prof. Hong Chen](https://see.tongji.edu.cn/info/1376/10290.htm) and [Assoc. Prof. Lin Zhang](https://faculty.tongji.edu.cn/zhanglin123456/zh_CN/index.htm)
+- **2025.09 – Present · Ph.D.**, [Tongji University](https://www.tongji.edu.cn/), Shanghai, China.
+  - Control Science and Engineering
+  - Supervisor: [Prof. Jie Chen](https://www.tongji.edu.cn/info/1136/21221.htm) (IEEE Fellow)
+  - Also collaborate with [Prof. Hong Chen](https://see.tongji.edu.cn/info/1376/10290.htm) (IEEE Fellow) and [Assoc. Prof. Lin Zhang](https://faculty.tongji.edu.cn/zhanglin123456/zh_CN/index.htm)
+- **2021.09 – 2025.06 · B.Eng.**, [Jiangnan University](https://www.jiangnan.edu.cn/), Wuxi, China.
+  - School of Automation and Intelligent Science. Supervisor: [Prof. Ziyun Wang](https://iot.jiangnan.edu.cn/info/1141/3583.htm).
+  - Honors School, 2022.06 – 2025.06. Supervisor: [Prof. Yan Wang](https://iot.jiangnan.edu.cn/info/1141/3534.htm).
 
 </div>
 

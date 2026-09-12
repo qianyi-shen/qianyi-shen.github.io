@@ -6,11 +6,8 @@
    TYPOGRAPHY
    ========================================================================== */
 
-/* Used to set the size for <em> */
-$doc-font-size              : 16;
 
-/* Paragraph indention */
-$paragraph-indent           : false; // true, false (default)
+/* Paragraph spacing */
 $indent-var                 : 1.3em;
 
 /* System typefaces */
@@ -20,24 +17,14 @@ $monospace                  : Monaco, Consolas, "Lucida Console", monospace;
 
 /* Sans serif typefaces */
 $sans-serif-narrow          : $sans-serif;
-$helvetica                  : Helvetica, "Helvetica Neue", Arial, sans-serif;
 
 /* Serif typefaces */
-$georgia                    : Georgia, serif;
-$times                      : Times, serif;
-$bodoni                     : "Bodoni MT", serif;
-$calisto                    : "Calisto MT", serif;
-$garamond                   : Garamond, serif;
 
 /* Type scale */
-$type-size-1                : 2.441em;  // ~39.056px
-$type-size-2                : 1.953em;  // ~31.248px
 $type-size-3                : 1.563em;  // ~25.008px
 $type-size-4                : 1.25em;   // ~20px
 $type-size-5                : 1em;      // ~16px
 $type-size-6                : 0.75em;   // ~12px
-$type-size-7                : 0.6875em; // ~11px
-$type-size-8                : 0.625em;  // ~10px
 
 $global-font-family         : $sans-serif;
 $header-font-family         : $sans-serif;
@@ -51,34 +38,17 @@ $caption-font-family        : $serif;
 
 $small                      : 600px !default;
 $medium                     : 768px !default;
-$medium-wide                : 900px !default;
 $large                      : 925px !default;
-$x-large                    : 1280px !default;
-
-/* ==========================================================================
-   Grid
-   ========================================================================== */
-
-$right-sidebar-width-narrow : auto;
-$right-sidebar-width        : auto;
-$right-sidebar-width-wide   : auto;
-
-$susy: (
-    columns: 12,
-    column-width: 120px,
-    gutters: 1/4,
-    math: fluid,
-    output: float,
-    gutter-position: after,
-    container: $large,
-    global-box-sizing: border-box,
-);
 
 /* ==========================================================================
    BRAND COLORS
    ========================================================================== */
 
-$facebook-color             : #3b5998;
 $instagram-color            : #517fa4;
-$linkedin-color             : #007bb6;
-$twitter-color              : #55acee;
+
+/* Shared component settings */
+$border-radius: 0.5rem;
+$box-shadow: var(--global-shadow-soft);
+$global-transition: color 160ms ease, background-color 160ms ease, border-color 160ms ease, box-shadow 160ms ease, opacity 160ms ease, transform 160ms ease;
+$navicon-width: 28px;
+$navicon-height: 4px;

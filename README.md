@@ -8,12 +8,11 @@ The site is built with [Academic Pages](https://academicpages.github.io/) and
 
 ## Site Sections
 
-- About and research interests
+- About
 - Publications
-- Blog Posts
-- CV
-- Hobbies
-- 中文
+- Projects
+- Posts
+- Gallery
 
 ## Credits
 

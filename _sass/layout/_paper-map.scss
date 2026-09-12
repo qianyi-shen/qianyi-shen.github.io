@@ -1,0 +1,94 @@
+/* A responsive reading map with live text and journal links. */
+.paper-map {
+  display: block;
+  margin: 2rem 0;
+  font-family: $sans-serif;
+
+  &__origins,
+  &__branches {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: 2rem;
+    position: relative;
+  }
+
+  a.paper-map__node {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    min-width: 0;
+    padding: 1rem;
+    border: 1px solid var(--global-border-color);
+    border-radius: var(--global-radius-control);
+    background: var(--global-surface-raised-color);
+    color: var(--global-text-color);
+    font-size: 0.875rem;
+    line-height: 1.55;
+    text-decoration: none;
+    transition: border-color var(--global-transition-fast), background var(--global-transition-fast);
+
+    strong { color: var(--global-heading-color); font-size: 1rem; line-height: 1.35; }
+    small { margin-top: auto; padding-top: 0.25rem; font-size: 0.8125rem; color: var(--global-text-color-light); }
+
+    &:hover,
+    &:focus-visible { border-color: var(--global-action-color); background: var(--global-hover-color); }
+    &:focus-visible { outline: 2px solid var(--global-focus-color); outline-offset: 3px; }
+  }
+
+  &__role { color: var(--global-action-color); font-size: 0.8125rem; font-weight: 600; }
+
+  &__next {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    color: var(--global-text-color-light);
+  }
+
+  &__join,
+  &__fork {
+    display: block;
+    width: 100%;
+    height: 3rem;
+    overflow: visible;
+    fill: none;
+    stroke: var(--global-text-color-light);
+    path { stroke-width: 1.25px; vector-effect: non-scaling-stroke; }
+  }
+
+  a.paper-map__survey {
+    width: 75%;
+    margin: 0 auto;
+    text-align: center;
+    background: var(--global-surface-accent-color);
+  }
+
+  figcaption { margin: 1rem 0 0; font-family: $sans-serif; font-size: 0.8125rem; line-height: 1.6; }
+
+  @media (max-width: 600px) {
+    &__origins { grid-template-columns: minmax(0, 1fr); gap: 0.5rem; }
+    &__next { position: static; transform: rotate(90deg); justify-self: center; }
+    &__join,
+    &__fork { display: none; }
+    a.paper-map__survey {
+      width: 100%;
+      margin-top: 1.75rem;
+      position: relative;
+      &::before { content: "↓"; position: absolute; top: -1.75rem; left: calc(50% - 0.4em); color: var(--global-text-color-light); }
+    }
+    &__branches {
+      grid-template-columns: minmax(0, 1fr);
+      gap: 0.75rem;
+      margin: 1.75rem 0 0 0.5rem;
+      padding-left: 1rem;
+      border-left: 1px solid var(--global-dark-border-color);
+      &::before { content: ""; position: absolute; left: -1px; top: -1.75rem; height: 1.75rem; border-left: 1px solid var(--global-dark-border-color); }
+      a.paper-map__node {
+        position: relative;
+        &::before { content: ""; position: absolute; left: -1rem; top: 50%; width: 1rem; border-top: 1px solid var(--global-dark-border-color); }
+      }
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) { a.paper-map__node { transition: none; } }
+}

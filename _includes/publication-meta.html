@@ -1,0 +1,15 @@
+{% assign publication_item = include.item %}
+{% assign publication_status = publication_item.publication_status | default: 'published' %}
+<p class="publication-meta publication-meta--{{ publication_status | slugify }}">
+  {% if publication_status == 'submitted' %}
+    <span class="publication-meta__label">Submitted</span>
+    {% if publication_item.submission_venue %}<span>to <i>{{ publication_item.submission_venue | escape }}</i></span>{% endif %}
+    {% if publication_item.publication_status_note %}<span class="publication-meta__status">({{ publication_item.publication_status_note | escape }})</span>{% endif %}
+  {% elsif publication_item.category == 'patents' %}
+    <span>Chinese patent · Application no. {{ publication_item.patent_number | escape }}</span>
+  {% else %}
+    {% if publication_item.venue %}<i>{{ publication_item.venue | escape }}</i>{% endif %}
+    {% if publication_item.bibliography %}<span>{{ publication_item.bibliography | escape }}</span>{% endif %}
+  {% endif %}
+  {% if publication_item.date %}<span class="publication-meta__year">{{ publication_item.date | date: '%Y' }}</span>{% endif %}
+</p>

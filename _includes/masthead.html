@@ -3,23 +3,27 @@
   <div class="masthead__inner-wrap">
     <div class="masthead__menu">
       <nav id="site-nav" class="greedy-nav">
-        <button type="button" aria-label="Toggle navigation menu"><span class="navicon"></span></button>
+        <button class="hidden" type="button" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="site-nav-overflow"><span class="navicon"></span></button>
         <ul class="visible-links">
-          <li class="masthead__menu-item masthead__menu-item--lg persist {% if page.url == '/' or page.url == '/index.html' %}selected{% endif %}">
-            <a href="{{ base_path }}/">{{ site.title }}</a>
-          </li>
           {% for link in site.data.navigation.main %}
+            {% assign nav_selected = false %}
+            {% if page.url == link.url %}{% assign nav_selected = true %}{% endif %}
+            {% if link.url == '/' and page.url == '/index.html' %}{% assign nav_selected = true %}{% endif %}
+            {% if page.url contains link.url and link.url != '/' %}{% assign nav_selected = true %}{% endif %}
+            {% if link.url == '/publications/' %}
+              {% if page.collection == 'publications' %}{% assign nav_selected = true %}{% endif %}
+            {% endif %}
             {% if link.url contains 'http' %}
               {% assign domain = '' %}
             {% else %}
               {% assign domain = base_path %}
             {% endif %}
-            <li class="masthead__menu-item {% if page.url contains link.url and link.url != '/' %}selected{% endif %}">
-              <a href="{{ domain }}{{ link.url }}">{{ link.title }}</a>
+            <li class="masthead__menu-item {% if link.url == '/' %}persist{% endif %} {% if nav_selected %}selected{% endif %}">
+              <a href="{{ domain }}{{ link.url }}"{% if nav_selected %} aria-current="{% if page.url == link.url %}page{% else %}location{% endif %}"{% endif %}>{{ link.title }}</a>
             </li>
           {% endfor %}
         </ul>
-        <ul class="hidden-links hidden"></ul>
+        <ul id="site-nav-overflow" class="hidden-links hidden"></ul>
         <div id="theme-toggle" class="masthead__theme-control">
           <a role="button" tabindex="0" aria-label="Dark theme" aria-pressed="false"><i id="theme-icon" class="fa-solid fa-sun" aria-hidden="true" title="toggle theme"></i></a>
         </div>

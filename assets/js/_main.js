@@ -97,7 +97,6 @@ const updateVisitCount = () => {
 $(document).ready(function () {
   // SCSS SETTINGS - These should be the same as the settings in the relevant files 
   const scssLarge = 925;  // pixels, from /_sass/_themes.scss
-  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   updateVisitCount();
 
@@ -119,37 +118,73 @@ $(document).ready(function () {
     }
   });
 
-  // Enable the sticky footer
-  var bumpIt = function () {
-    $("body").css("padding-bottom", "0");
-    $("body").css("margin-bottom", $(".page__footer").outerHeight(true));
+  // Native button activation supports both Enter and Space.
+  const wechatButton = document.querySelector('.author__wechat-trigger');
+  const wechatPopover = document.getElementById('wechat-qr');
+  const setWechatOpen = (open) => {
+    if (!wechatButton || !wechatPopover) return;
+    wechatButton.setAttribute('aria-expanded', String(open));
+    wechatPopover.hidden = !open;
+  };
+  if (wechatButton && wechatPopover) {
+    const wechatRow = wechatButton.closest('.author__wechat');
+    wechatButton.addEventListener('click', () => {
+      setWechatOpen(wechatPopover.hidden);
+    });
+    wechatRow.addEventListener('pointerenter', (event) => {
+      if (event.pointerType === 'mouse') setWechatOpen(true);
+    });
+    wechatRow.addEventListener('pointerleave', () => {
+      if (!wechatRow.contains(document.activeElement)) setWechatOpen(false);
+    });
+    wechatRow.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape' && !wechatPopover.hidden) {
+        event.preventDefault();
+        event.stopPropagation();
+        setWechatOpen(false);
+      }
+    });
+    wechatRow.addEventListener('focusout', (event) => {
+      if (!wechatRow.contains(event.relatedTarget)) setWechatOpen(false);
+    });
+    document.addEventListener('click', (event) => {
+      if (!wechatRow.contains(event.target)) setWechatOpen(false);
+    });
   }
-  $(window).resize(function () {
-    didResize = true;
-  });
-  setInterval(function () {
-    if (didResize) {
-      didResize = false;
-      bumpIt();
-    }}, 250);
-  var didResize = false;
-  bumpIt();
 
-  // Follow menu drop down
-  $(".author__urls-wrapper button").on("click", function () {
-    if (prefersReducedMotion) {
-      $(".author__urls").toggle();
-    } else {
-      $(".author__urls").fadeToggle("fast", function () { });
-    }
-    $(".author__urls-wrapper button").toggleClass("open");
-  });
-
-  // Restore the follow menu if toggled on a window resize
-  jQuery(window).on('resize', function () {
-    if ($('.author__urls.social-icons').css('display') == 'none' && $(window).width() >= scssLarge) {
-      $(".author__urls").css('display', 'block')
-    }
-  });
+  // Contact links: CSS owns the breakpoint; JS only owns the expanded state.
+  const contactButton = document.querySelector('.author__contact-toggle');
+  const contactLinks = document.getElementById('author-links');
+  if (contactButton && contactLinks) {
+    const contactWrapper = contactButton.closest('.author__urls-wrapper');
+    const desktopContact = window.matchMedia('(min-width: ' + (scssLarge / 16) + 'em)');
+    const setContactOpen = (open, restoreFocus) => {
+      contactWrapper.classList.toggle('is-open', open);
+      contactButton.setAttribute('aria-expanded', String(open));
+      if (!open) setWechatOpen(false);
+      if (restoreFocus) contactButton.focus();
+    };
+    contactButton.addEventListener('click', () => {
+      setContactOpen(contactButton.getAttribute('aria-expanded') !== 'true');
+    });
+    contactWrapper.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape' && !desktopContact.matches) {
+        event.preventDefault();
+        setContactOpen(false, true);
+      }
+    });
+    document.addEventListener('click', (event) => {
+      if (!contactWrapper.contains(event.target)) setContactOpen(false);
+    });
+    contactWrapper.addEventListener('focusout', (event) => {
+      if (!contactWrapper.contains(event.relatedTarget)) setContactOpen(false);
+    });
+    desktopContact.addEventListener('change', () => {
+      const activeLink = contactLinks.contains(document.activeElement);
+      const activeButton = document.activeElement === contactButton;
+      setContactOpen(false, !desktopContact.matches && activeLink);
+      if (desktopContact.matches && activeButton) contactLinks.querySelector('a').focus();
+    });
+  }
 
 });

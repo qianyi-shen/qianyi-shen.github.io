@@ -1,15 +1,18 @@
+{% include base_path %}
 {% assign item = include.item %}
 
-{% if item.paperurl or item.slidesurl or item.bibtexurl %}
+{% if item.paperurl or item.slidesurl or item.bibtexurl or item.doi or item.codeurl %}
   <p class="publication-links" aria-label="Publication resources">
     {% if item.paperurl %}
-      <a class="publication-link" href="{{ item.paperurl }}">Paper</a>
+      <a class="publication-link" href="{% unless item.paperurl contains '://' %}{{ base_path }}{% endunless %}{{ item.paperurl | escape }}">{{ item.paper_label | default: 'Paper' | escape }}</a>
     {% endif %}
     {% if item.slidesurl %}
-      <a class="publication-link" href="{{ item.slidesurl }}">{{ item.slides_label | default: "Slides" | escape }}</a>
+      <a class="publication-link" href="{% unless item.slidesurl contains '://' %}{{ base_path }}{% endunless %}{{ item.slidesurl | escape }}">{{ item.slides_label | default: "Slides" | escape }}</a>
     {% endif %}
     {% if item.bibtexurl %}
-      <a class="publication-link" href="{{ item.bibtexurl }}">BibTeX</a>
+      <a class="publication-link" href="{% unless item.bibtexurl contains '://' %}{{ base_path }}{% endunless %}{{ item.bibtexurl | escape }}">BibTeX</a>
     {% endif %}
+    {% if item.doi %}<a class="publication-link" href="https://doi.org/{{ item.doi | escape }}">DOI</a>{% endif %}
+    {% if item.codeurl %}<a class="publication-link" href="{% unless item.codeurl contains '://' %}{{ base_path }}{% endunless %}{{ item.codeurl | escape }}">Code</a>{% endif %}
   </p>
 {% endif %}

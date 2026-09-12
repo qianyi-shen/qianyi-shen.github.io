@@ -1,27 +1,9 @@
 {
-  "name": "academic-pages",
-  "version": "0.8.1.1",
-  "description": "Academic Pages Mistakes Jekyll theme npm build scripts",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/academicpages/academicpages.github.io"
-  },
-  "keywords": [
-    "jekyll",
-    "theme",
-    "minimal"
-  ],
-  "contributors": [
-    "Michael Rose",
-    "Robert Zupko"
-  ],
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/academicpages/academicpages.github.io/issues"
-  },
-  "homepage": "https://github.com/academicpages/academicpages.github.io",
+  "name": "qianyi-shen-homepage",
+  "private": true,
+  "description": "Static academic homepage for Qianyi Shen",
   "engines": {
-    "node": ">= 0.10.0"
+    "node": ">=20"
   },
   "dependencies": {
     "jquery": "^3.7.1"
@@ -31,9 +13,8 @@
     "uglify-js": "^3.17.4"
   },
   "scripts": {
-    "uglify:main": "uglifyjs node_modules/jquery/dist/jquery.min.js assets/js/plugins/jquery.greedy-navigation.js assets/js/_main.js -c -m -o assets/js/main.min.js",
-    "uglify": "npm run uglify:main",
+    "build:js": "uglifyjs node_modules/jquery/dist/jquery.min.js assets/js/plugins/jquery.greedy-navigation.js assets/js/_main.js -c -m -o assets/js/main.min.js",
     "watch:js": "onchange \"assets/js/**/*.js\" -e \"assets/js/*.min.js\" -- npm run build:js",
-    "build:js": "npm run uglify"
+    "test": "bundle exec ruby tests/site_check.rb"
   }
 }

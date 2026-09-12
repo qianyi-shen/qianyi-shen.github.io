@@ -13,7 +13,7 @@
   padding: 0.5em 1em;
   color: var(--global-on-action-color) !important;
   font-family: $sans-serif;
-  font-size: $type-size-6;
+  font-size: 0.8125rem;
   font-weight: bold;
   text-align: center;
   text-decoration: none;
@@ -26,7 +26,8 @@
               border-color var(--global-transition-fast),
               box-shadow var(--global-transition-fast);
 
-  &:hover {
+  &:hover,
+  &:focus-visible {
     background-color: var(--global-action-hover-color);
   }
 
@@ -43,17 +44,6 @@
     margin-left: -0.5em; /* override for hidden text*/
   }
 
-  /* fills width of parent container */
-
-  &--block {
-    display: block;
-    width: 100%;
-
-    + .btn--block {
-      margin-top: 0.25em;
-    }
-  }
-
   /* for dark backgrounds */
 
   &--inverse {
@@ -61,102 +51,12 @@
     border: 1px solid var(--global-border-color) !important; /* override*/
     background-color: var(--global-surface-raised-color);
 
-    &:hover {
+    &:hover,
+    &:focus-visible {
       color: var(--global-text-color) !important;
       border-color: var(--global-border-color);
       background-color: var(--global-hover-color);
     }
   }
 
-  /* light outline */
-
-  &--light-outline {
-    border: 1px solid #fff !important; /* override*/
-    background-color: transparent;
-  }
-
-  /* information */
-
-  &--info {
-    background-color: $info-color;
-
-    &:hover {
-      background-color: mix(#000, $info-color, 20%);
-    }
-  }
-
-  /* warning */
-
-  &--warning {
-    background-color: $warning-color;
-
-    &:hover {
-      background-color: mix(#000, $warning-color, 20%);
-    }
-  }
-
-  /* success */
-
-  &--success {
-    background-color: $success-color;
-
-    &:hover {
-      background-color: mix(#000, $success-color, 20%);
-    }
-  }
-
-  /* danger */
-
-  &--danger {
-    background-color: $danger-color;
-
-    &:hover {
-      background-color: mix(#000, $danger-color, 20%);
-    }
-  }
-
-  /* disabled */
-
-  &--disabled {
-    pointer-events: none;
-    cursor: not-allowed;
-    filter: alpha(opacity=65);
-    box-shadow: none;
-    opacity: 0.65;
-  }
-
-  /* social buttons */
-
-  $social:
-  (facebook, $facebook-color),
-  (linkedin, $linkedin-color),
-  (twitter, $twitter-color); 
-
-  @each $socialnetwork, $color in $social {
-    &--#{$socialnetwork} {
-      background-color: $color;
-
-      &:hover {
-        background-color: mix(#000, $color, 20%);
-      }
-    }
-  }
-
-  /* extra large button */
-
-  &--x-large {
-    font-size: $type-size-4;
-  }
-
-  /* large button */
-
-  &--large {
-    font-size: $type-size-5;
-  }
-
-  /* small button */
-
-  &--small {
-    font-size: $type-size-7;
-  }
 }
