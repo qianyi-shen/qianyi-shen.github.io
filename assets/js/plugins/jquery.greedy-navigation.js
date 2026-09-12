@@ -13,6 +13,11 @@ var $themeToggle = $('#theme-toggle');
 
 var breaks = [];
 
+function closeNav() {
+  $hlinks.addClass('hidden');
+  $btn.removeClass('close').attr('aria-expanded', 'false');
+}
+
 function getAvailableSpace(showMenuButton) {
   var columnGap = parseFloat($nav.css('column-gap')) || 0;
   var controlsWidth = $themeToggle.outerWidth(true) + (columnGap * 2);
@@ -68,22 +73,17 @@ function updateNav() {
     // Hide the dropdown btn if hidden list is empty
     if (breaks.length < 1) {
       $btn.addClass('hidden');
-      $btn.removeClass('close');
-      $hlinks.addClass('hidden');
+      closeNav();
     }
   }
 
   // Keep counter updated
   $btn.attr("count", breaks.length);
 
-  // update masthead height and the body/sidebar top padding
+  // Reserve space for the fixed masthead; the sidebar uses CSS sticky positioning.
   var mastheadHeight = $('.masthead').height();
   $('body').css('padding-top', mastheadHeight + 'px');
-  if ($(".author__urls-wrapper button").is(":visible")) {
-    $(".sidebar").css("padding-top", "");
-  } else {
-    $(".sidebar").css("padding-top", mastheadHeight + "px");
-  }
+  document.documentElement.style.setProperty('--masthead-height', mastheadHeight + 'px');
 
 }
 
@@ -103,8 +103,24 @@ if (window.screen && screen.orientation && typeof screen.orientation.addEventLis
 }
 
 $btn.on('click', function () {
-  $hlinks.toggleClass('hidden');
-  $(this).toggleClass('close');
+  var isOpen = $btn.attr('aria-expanded') !== 'true';
+  $hlinks.toggleClass('hidden', !isOpen);
+  $btn.toggleClass('close', isOpen).attr('aria-expanded', String(isOpen));
+});
+
+// Do not retain an open dropdown when navigating or restoring a cached page.
+$nav.on('click', 'a[href]', closeNav);
+$(window).on('pageshow', function () {
+  closeNav();
+  updateNav();
+});
+$(document).on('click', function (event) {
+  if (!$nav[0].contains(event.target)) closeNav();
+}).on('keydown', function (event) {
+  if (event.key === 'Escape' && $btn.attr('aria-expanded') === 'true') {
+    closeNav();
+    $btn.trigger('focus');
+  }
 });
 
 updateNav();

@@ -1,0 +1,6 @@
+{% assign has_sidebar = false %}
+{% if page.url == "/" %}
+  {% if page.author_profile or layout.author_profile %}
+    {% assign has_sidebar = true %}
+  {% endif %}
+{% endif %}

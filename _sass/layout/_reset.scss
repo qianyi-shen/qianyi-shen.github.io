@@ -2,11 +2,14 @@
    STYLE RESETS
    ========================================================================== */
 
-@include border-box-sizing;
+*,
+*::before,
+*::after { box-sizing: border-box; }
 
 html {
   /* apply a natural box layout model to all elements */
   box-sizing: border-box;
+  scrollbar-gutter: stable;
   background-color: var(--global-bg-color);
   font-size: 16px;
 
@@ -15,7 +18,6 @@ html {
   }
 
   -webkit-text-size-adjust: 100%;
-  -ms-text-size-adjust: 100%;
 }
 
 /* Remove margin */
@@ -25,39 +27,21 @@ body { margin: 0; }
 /* Selected elements */
 
 ::-moz-selection {
-  color: #fff;
-  background: #000;
+  color: var(--global-on-action-color);
+  background: var(--global-action-color);
 }
 
 ::selection {
-  color: #fff;
-  background: #000;
+  color: var(--global-on-action-color);
+  background: var(--global-action-color);
 }
 
-/* Display HTML5 elements in IE6-9 and FF3 */
-
-article,
-aside,
-details,
-figcaption,
-figure,
-footer,
-header,
-hgroup,
-main,
-nav,
-section {
-  display: block;
-}
-
-/* Display block in IE6-9 and FF3 */
+/* Embedded media */
 
 audio,
 canvas,
 video {
   display: inline-block;
-  *display: inline;
-  *zoom: 1;
 }
 
 /* Prevents modern browsers from displaying 'audio' without controls */
@@ -106,19 +90,10 @@ sub {
 img {
   /* Responsive images (ensure images don't scale beyond their parents) */
   max-width: 100%; /* part 1: Set a maximum relative to the parent*/
-  width: auto\9; /* IE7-8 need help adjusting responsive images*/
   height: auto; /* part 2: Scale the height according to the width, otherwise you get stretching*/
 
   vertical-align: middle;
   border: 0;
-  -ms-interpolation-mode: bicubic;
-}
-
-/* Prevent max-width from affecting Google Maps */
-
-#map_canvas img,
-.google-maps img {
-  max-width: none;
 }
 
 /* Consistent form font size in all browsers, margin changes, misc */
@@ -134,7 +109,6 @@ textarea {
 
 button,
 input {
-  *overflow: visible; /* inner spacing ie IE6/7*/
   line-height: normal; /* FF3/4 have !important on line-height in UA stylesheet*/
 }
 

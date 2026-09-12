@@ -7,37 +7,20 @@
    ========================================================================== */
 
 .sidebar {
-  -webkit-transform: translate3d(0, 0 , 0);
-          transform: translate3d(0, 0 , 0);
-
-  @include clearfix();
+  min-width: 0;
   margin-bottom: 1em;
 
   @media (orientation: portrait) {
     margin-top: 1em;
   }
 
-  @media screen and (min-width: $sidebar-screen-min-width) {
-    height: 100vh;
-    overflow-y: auto;               // Add scrollbar if the sidebar is too long
-    position: fixed;
-    padding-top: $masthead-height;
-  }
-
   @include breakpoint($large) {
-    @include span(2 of 12);
-    opacity: 1;
-    -webkit-transition: opacity 0.2s ease-in-out;
-            transition: opacity 0.2s ease-in-out;
-
-    &:hover {
-      opacity: 1;
-    }
-  }
-
-  @include breakpoint($x-large) {
-    max-width: $sidebar-link-max-width;
-    padding-right: 0;
+    --sidebar-top: calc(var(--masthead-height, 65px) + 1.25rem);
+    position: sticky;
+    top: var(--sidebar-top);
+    max-height: calc(100vh - var(--sidebar-top) - 1.25rem);
+    margin: 0;
+    overflow-y: auto;
   }
 
   h2, h3, h4, h5, h6 {
@@ -60,82 +43,6 @@
   }
 }
 
-.sidebar__right {
-  margin-bottom: 1em;
-
-  @include breakpoint($large) {
-    position: relative;
-    float: right;
-    width: $right-sidebar-width-narrow;
-    margin-left: span(0.5 of 12);
-    z-index: 10;
-  }
-
-  @include breakpoint($x-large) {
-    width: $right-sidebar-width;
-  }
-}
-
-
-/*
-   Table of contents
-   ========================================================================== */
-
-.toc {
-  background-color: var(--global-toc-bg-color);
-  border: 1px solid var(--global-border-color);
-  border-radius: var(--global-radius-panel);
-  box-shadow: $box-shadow;
-  padding: 1em;
-
-  .nav__title {
-    color: var(--global-text-color);
-    font-size: 0.8125rem;
-    background: transparent;
-    border: 0;
-    padding: 0;
-  }
-
-  .toc__menu {
-    margin: 0;
-    padding: 0;
-    width: 100%;
-    list-style: none;
-    font-size: 0.8125rem;
-
-    a {
-      display: block;
-      padding: 0.25rem 0;
-      color: var(--global-text-color);
-      font-size: 0.8125rem;
-      font-weight: normal;
-      line-height: 1.5;
-      border-bottom: 0;
-
-      &:hover {
-        text-decoration: underline;
-      }
-    }
-
-    > li > a {
-      font-weight: bold;
-    }
-
-    li ul > li a {
-      padding-left: 1rem;
-      font-weight: normal;
-    }
-
-    li ul li ul > li a {
-      padding-left: 2rem;
-    }
-
-    li ul li ul li ul > li a {
-      padding-left: 3rem;
-    }
-  }
-}
-
 /*
    Author profile and links
    ========================================================================== */
@@ -144,8 +51,6 @@
   display: table-cell;
   vertical-align: top;
   width: 36px;
-  // set width only, for non-square avatars
-  // height: 36px;
 
   @include breakpoint($large) {
     display: block;
@@ -202,7 +107,7 @@
 
 .sidebar .author__desktop {
   display: none;
-  @media screen and (min-width: 1024px) {
+  @include breakpoint($large) {
     display: grid;
   }
 }
@@ -245,7 +150,7 @@
     display: block;
   }
 
-  button {
+  .author__contact-toggle {
     margin-bottom: 0;
     border-radius: var(--global-radius-control);
     cursor: pointer;
@@ -374,16 +279,15 @@
 .author__wechat {
   position: relative;
   white-space: normal;
-
-  &:hover,
-  &:focus-within {
-    .author__wechat-popover {
-      display: block;
-    }
-  }
 }
 
 .author__wechat-trigger {
+  appearance: none;
+  width: 100%;
+  border: 0;
+  background: transparent;
+  font: inherit;
+  text-align: left;
   cursor: pointer;
 
   &:hover,
@@ -401,12 +305,12 @@
 }
 
 .author__wechat-popover {
-  display: none;
-  position: absolute;
-  left: 0;
-  top: 100%;
-  z-index: 30;
-  margin-top: 0.35em;
+  display: block;
+  &[hidden] { display: none; }
+  // Keep the expanded QR code in the scrollable sidebar's content flow.
+  width: max-content;
+  max-width: 100%;
+  margin: 0.35em 0;
   padding: 0.5em;
   background: var(--global-surface-overlay-color);
   border: 1px solid var(--global-border-color);
@@ -420,3 +324,5 @@
     border-radius: var(--global-radius-control);
   }
 }
+
+.author__urls-wrapper.is-open .author__urls { display: block; }

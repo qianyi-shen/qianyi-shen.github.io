@@ -1,20 +1,29 @@
 ---
 layout: archive
 title: "Publications"
+show_title: false
 permalink: /publications/
+description: "Journal articles, manuscripts, patents and dissertations by Qianyi Shen."
 ---
 
-<!-- New style rendering if publication categories are defined -->
 <div class="publication-index">
+  {% assign submitted_title_shown = false %}
+  {% for post in site.publications reversed %}
+    {% if post.publication_status != 'submitted' %}{% continue %}{% endif %}
+    {% unless submitted_title_shown %}
+      <h1 class="publication-category">Submitted</h1>
+      {% assign submitted_title_shown = true %}
+    {% endunless %}
+    {% include archive-single.html %}
+  {% endfor %}
+
   {% if site.publication_category %}
-    {% for category in site.publication_category  %}
+    {% for category in site.publication_category %}
       {% assign title_shown = false %}
       {% for post in site.publications reversed %}
-        {% if post.category != category[0] %}
-          {% continue %}
-        {% endif %}
+        {% if post.category != category[0] or post.publication_status == 'submitted' %}{% continue %}{% endif %}
         {% unless title_shown %}
-          <h2 class="publication-category">{{ category[1].title }}</h2>
+          <h1 class="publication-category">{{ category[1].title }}</h1>
           {% assign title_shown = true %}
         {% endunless %}
         {% include archive-single.html %}
@@ -22,7 +31,7 @@ permalink: /publications/
     {% endfor %}
   {% else %}
     {% for post in site.publications reversed %}
-      {% include archive-single.html %}
+      {% unless post.publication_status == 'submitted' %}{% include archive-single.html %}{% endunless %}
     {% endfor %}
   {% endif %}
 </div>

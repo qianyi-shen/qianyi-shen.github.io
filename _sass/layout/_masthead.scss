@@ -10,10 +10,7 @@
   top: 0;
   width: 100%;
 
-  -webkit-animation: intro 0.3s both;
-          animation: intro 0.3s both;
-  -webkit-animation-delay: 0.15s;
-          animation-delay: 0.15s;
+
   z-index: 20;
 
   &::after {
@@ -26,14 +23,11 @@
   }
 
   &__inner-wrap {
-    @include container;
     @include clearfix;
-    padding: 0.5em 1em;
+    max-width: var(--editorial-shell-width);
+    margin: 0 auto;
+    padding: 0.5rem var(--editorial-gutter);
     font-family: $sans-serif-narrow;
-
-    @include breakpoint($x-large) {
-      max-width: $x-large;
-    }
 
     nav {
       z-index: 10;
@@ -61,12 +55,8 @@
   list-style-type: none;
   white-space: nowrap;
 
-  &--lg {
-    padding-right: 2em;
-    font-weight: 700;
-  }
-
   a {
+    font-weight: 600;
     border-bottom: 2px solid transparent;
     border-radius: var(--global-radius-control);
     transition: color var(--global-transition-fast),
@@ -82,11 +72,8 @@
 
 .masthead__menu-item.selected a {
   color: var(--global-text-color);
-  font-weight: 700;
   background: var(--global-surface-accent-color);
   border-bottom-color: transparent;
-  pointer-events: none;
-  cursor: default;
 }
 
 #theme-toggle {

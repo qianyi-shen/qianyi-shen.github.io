@@ -2,218 +2,200 @@
    ACADEMIC CONTENT EXTENSIONS
    ========================================================================== */
 
-.academic-page {
-  max-width: 48rem;
+.academic-page__section {
+  margin-top: var(--editorial-section-gap);
+
+  &:first-child {
+    margin-top: 0;
+  }
 }
 
-.academic-page__section {
-  margin-top: 2rem;
+/*
+   Gallery
+   ========================================================================== */
+
+.academic-gallery {
+  text-align: left;
+
+  p,
+  li {
+    text-wrap: pretty;
+    overflow-wrap: break-word;
+  }
+
+  h1,
+  h2 {
+    text-wrap: balance;
+  }
+}
+
+.academic-gallery .gallery-section {
+  margin-top: calc(var(--editorial-section-gap) + 1rem);
 
   &:first-child {
     margin-top: 0;
   }
 
-  > h2 {
-    margin-top: 0;
-    padding-bottom: 0.45em;
-    border-bottom: 1px solid var(--global-border-color);
+  > h1 {
+    margin: 0 0 var(--editorial-heading-gap);
   }
 }
 
-/*
-   CV
-   ========================================================================== */
+.gallery-section__intro {
+  margin: 0 0 1.5rem;
+  color: var(--global-text-color-light);
+  font-size: var(--editorial-summary-size);
+  line-height: var(--editorial-reading-leading);
 
-.academic-skill-grid {
+  p { margin: 0; }
+
+  p + p { margin-top: 0.5em; }
+
+  + .gallery-grid { margin-top: 0; }
+}
+
+.gallery-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 0.85rem;
-  margin-top: 0.85rem;
+  align-items: start;
+  gap: 1.5rem 1.25rem;
+  margin: 1.5rem 0 0;
 }
 
-.academic-skill-group {
-  display: flex;
-  flex-direction: column;
-  padding: 0.85rem 0.95rem;
-  border: 1px solid var(--global-border-color);
-  border-left: 3px solid var(--global-base-color);
-  border-radius: var(--global-radius-panel);
-  background: var(--global-surface-raised-color);
-  box-shadow: var(--global-shadow-soft);
-
-  h3 {
-    margin-top: 0;
-    margin-bottom: 0.65rem;
-    font-size: $type-size-5;
-    line-height: 1.35;
-  }
-}
-
-.academic-chip-list {
-  > ul {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.45rem;
-    margin: 0;
-    padding: 0;
-    list-style: none;
-
-    > li {
-      margin: 0;
-      padding: 0.3rem 0.55rem;
-      border: 1px solid var(--global-border-color);
-      border-radius: 999px;
-      background: var(--global-surface-accent-color);
-      color: var(--global-text-color);
-      font-family: $sans-serif;
-      font-size: $type-size-6;
-      line-height: 1.35;
-    }
-  }
-}
-
-.academic-skill-detail {
-  margin-top: auto;
-  padding-top: 0.75rem;
-
-  &--toolchain {
-    border-top: 1px solid var(--global-border-color);
-  }
-}
-
-.academic-skill-detail__label {
-  display: block;
-  margin-bottom: 0.4rem;
-  color: var(--global-text-color-light);
-  font-family: $sans-serif;
-  font-size: 0.8125rem;
-  font-weight: 700;
-  letter-spacing: 0.045em;
-  line-height: 1.2;
-  text-transform: uppercase;
-}
-
-.academic-tech-list,
-.academic-credential-list {
-  > ul {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.4rem;
-    margin: 0;
-    padding: 0;
-    list-style: none;
-
-    > li {
-      margin: 0;
-      font-family: $sans-serif;
-      font-size: 0.8125rem;
-      font-weight: 650;
-      line-height: 1.25;
-    }
-  }
-}
-
-.academic-tech-list > ul > li {
-  padding: 0.28rem 0.5rem;
-  border: 1px solid var(--global-tech-border-color);
-  border-radius: var(--global-radius-control);
-  background: var(--global-tech-surface-color);
-  color: var(--global-tech-text-color);
-}
-
-.academic-credential-list > ul > li {
-  padding: 0.3rem 0.55rem;
-  border-left: 3px solid var(--global-base-color);
-  border-radius: 0 var(--global-radius-control) var(--global-radius-control) 0;
-  background: var(--global-code-background-color);
-  color: var(--global-code-text-color);
-}
-
-.academic-awards {
-  margin-top: 0.75rem;
-}
-
-/*
-   Hobbies
-   ========================================================================== */
-
-.hobby-gallery {
-  display: grid;
+.gallery-grid--motorsport {
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 0.75rem;
   margin: 0.75rem 0 1.25rem;
 
-  img {
+  > img {
     display: block;
     width: 100%;
+    height: auto;
     aspect-ratio: 16 / 9;
     object-fit: cover;
     border: 1px solid var(--global-border-color);
     border-radius: var(--global-radius-panel);
-    background: var(--global-surface-raised-color);
   }
 }
 
-.hobby-feature {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(18rem, 420px);
-  align-items: start;
-  gap: 1.1rem;
-  margin-top: 0.85rem;
-}
-
-.hobby-feature__content {
+.academic-gallery .gallery-photo {
+  display: block;
   min-width: 0;
+  margin: 0;
 
-  p:last-child {
-    margin-bottom: 0;
-  }
-}
-
-.hobby-feature__media {
   img {
     display: block;
     width: 100%;
-    max-width: 420px;
-    aspect-ratio: 16 / 9;
-    object-fit: contain;
+    height: auto;
+    margin: 0;
     border: 1px solid var(--global-border-color);
     border-radius: var(--global-radius-panel);
     background: var(--global-surface-raised-color);
   }
+
+}
+
+.academic-gallery .gallery-photo figcaption,
+.academic-gallery .gallery-note {
+  margin: 0.7rem 0 0;
+  color: var(--global-text-color-light);
+  font-size: var(--editorial-small-size);
+  font-family: inherit;
+  line-height: 1.6;
+
+  h2 {
+    margin: 0 0 0.25rem;
+    color: var(--global-heading-color);
+    font-size: 0.9375rem;
+    font-weight: 600;
+    line-height: 1.4;
+  }
+
+  p { margin: 0; }
+
+  p + p { margin-top: 0.65em; }
+
+  a {
+    border-bottom: 0;
+    white-space: nowrap;
+  }
+}
+
+.academic-gallery .gallery-section--cars .gallery-photo img,
+.academic-gallery .gallery-section--cat .gallery-photo img {
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+}
+
+.gallery-section--cars .gallery-photo:first-child img {
+  object-position: center 60%;
+}
+
+.gallery-section--cat .gallery-grid .gallery-photo:last-child img {
+  object-position: center top;
+}
+
+.gallery-feature {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: start;
+  gap: 1.25rem;
+}
+
+.gallery-feature__content {
+  min-width: 0;
+  font-size: var(--editorial-summary-size);
+  line-height: var(--editorial-reading-leading);
+
+  p { margin: 0; }
+
+  p + p { margin-top: 0.75em; }
+}
+
+.gallery-feature__media {
+  width: 100%;
+}
+
+.gallery-credit {
+  margin: var(--editorial-section-gap) 0 0;
+  color: var(--global-text-color-light);
+  font-size: var(--editorial-small-size);
 }
 
 /*
-   Blog index
+   Posts index
    ========================================================================== */
 
-.blog-index {
-  max-width: 52rem;
-
+.posts-index {
   .archive__subtitle {
-    margin-top: 1.7rem;
-    padding: 0.25rem 0 0.55rem;
-    color: var(--global-text-color);
-    font-size: $type-size-4;
-    border-bottom: 1px solid var(--global-border-color);
-  }
+    margin: var(--editorial-section-gap) 0 var(--editorial-heading-gap);
+    color: var(--global-heading-color);
+    font-size: $type-size-3;
 
-  .archive__item {
-    padding: 0.25rem 0 0.65rem;
+    &:first-child {
+      margin-top: 0;
+    }
   }
 }
 
-.blog-index .list__item {
-  padding: 0.4rem 0 1rem;
-  border-bottom: 1px solid var(--global-border-color);
+.posts-index .list__item {
+  padding: 0.35rem 0 1.25rem;
 }
 
-.blog-index .list__item:last-child {
-  border-bottom: 0;
+.posts-index .archive__item-title {
+  margin: 0 0 0.4rem;
+  font-size: 1.125rem;
+  font-weight: 600;
+  line-height: 1.45;
 }
 
-.blog-index .archive__item-title {
-  line-height: 1.35;
+.posts-index .page__date {
+  margin: 0.65rem 0 0.85rem;
+  color: var(--global-text-color-light);
+  font-size: var(--editorial-small-size);
+
+  strong {
+    font-weight: 500;
+  }
 }
 
 .post-tags {
@@ -228,33 +210,36 @@
   align-items: center;
   min-height: 1.5rem;
   padding: 0.2rem 0.45rem;
-  border: 1px solid var(--global-border-color);
-  border-radius: 999px;
-  background: var(--global-surface-accent-color);
+  border: 1px solid transparent;
+  border-radius: var(--editorial-control-radius);
+  background: color-mix(in srgb, var(--global-text-color) 5%, var(--global-bg-color));
   color: var(--global-text-color-light);
   font-family: $sans-serif;
-  font-size: 0.8125rem;
+  font-size: var(--editorial-small-size);
   line-height: 1.2;
 }
 
 @include breakpoint(max-width $small) {
-  .academic-page {
-    max-width: none;
-  }
-
-  .academic-skill-grid {
+  .gallery-grid {
     grid-template-columns: 1fr;
   }
 
-  .hobby-gallery {
+  .gallery-feature {
     grid-template-columns: 1fr;
   }
 
-  .hobby-feature {
-    grid-template-columns: 1fr;
-  }
+}
 
-  .hobby-feature__media img {
-    max-width: none;
+@media print {
+  @page { size: A4; margin: 15mm; }
+  html, body { background: #fff !important; color: #111 !important; font-size: 10pt; }
+  body { padding: 0 !important; margin: 0 !important; }
+  #main.layout--reading { max-width: none; padding: 0; margin: 0; }
+  .academic-projects {
+    &, * { color: #111 !important; background: transparent !important; box-shadow: none !important; }
+    h1, h2 { break-after: avoid; }
+    .project { margin-top: 1.5rem; }
+    .publication-link { border: 0; padding: 0; min-height: 0; }
+    a { text-decoration: underline; }
   }
 }

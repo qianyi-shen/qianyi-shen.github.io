@@ -3,20 +3,10 @@
    ========================================================================== */
 
 %tab-focus {
-  /* Default*/
-  outline: thin dotted $warning-color;
-  /* Webkit*/
-  outline: 5px auto $warning-color;
-  outline-offset: -2px;
+  outline: 2px solid var(--global-focus-color);
+  outline-offset: 3px;
 }
 
-/*
-   em function
-   ========================================================================== */
-
-@function em($target, $context: $doc-font-size) {
-  @return ($target / $context) * 1em;
-}
 
 
 /*

@@ -2,60 +2,54 @@
    ACADEMIC HOME
    ========================================================================== */
 
-.academic-home {
-  max-width: 46rem;
-}
-
 .academic-home__intro {
   margin-bottom: 1.75rem;
-  padding: 1.15rem 1.2rem;
-  border: 1px solid var(--global-border-color);
-  border-left: 4px solid var(--global-base-color);
-  border-radius: var(--global-radius-panel);
-  background: var(--global-surface-accent-color);
-  box-shadow: var(--global-shadow-soft);
-
-  > ul {
-    margin: 0;
-    padding-left: 1.1rem;
-
-    > li {
-      margin-bottom: 0;
-    }
-  }
+  padding: 0.15rem 0 0.15rem 1.1rem;
+  border-left: 2px solid var(--global-border-color);
 }
 
 .academic-home__section {
-  margin-top: 2rem;
+  margin-top: var(--editorial-section-gap);
 
   > h2 {
-    margin-bottom: 0.75rem;
-    padding-bottom: 0.5rem;
-    border-bottom: 1px solid var(--global-border-color);
+    margin: 0 0 var(--editorial-heading-gap);
   }
 }
 
-.academic-home__chips {
-  margin-top: 0.6rem;
+.academic-home__research {
+  margin-top: 1rem;
+}
+
+.academic-home__research-group {
+  display: grid;
+  grid-template-columns: 8rem minmax(0, 1fr);
+  gap: 1rem;
+  padding: 0.75rem 0;
+
+  > h3 {
+    margin: 0;
+    color: var(--global-text-color);
+    font-size: 0.95rem;
+    font-weight: 600;
+    line-height: 1.7;
+  }
 
   > ul {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.55rem;
     margin: 0;
     padding: 0;
     list-style: none;
+    font-size: 0.95rem;
+    line-height: 1.7;
 
     > li {
+      display: inline;
       margin: 0;
-      padding: 0.35rem 0.65rem;
-      border: 1px solid var(--global-dark-border-color);
-      border-radius: 999px;
-      background: var(--global-surface-accent-color);
-      color: var(--global-text-color);
-      font-family: $sans-serif;
-      font-size: $type-size-6;
-      line-height: 1.35;
+      overflow-wrap: break-word;
+
+      &:not(:last-child)::after {
+        content: "; ";
+        color: var(--global-text-color-light);
+      }
     }
   }
 }
@@ -107,13 +101,11 @@
   flex-direction: column;
   align-items: center;
   gap: 0.15rem;
-  max-width: 46rem;
   margin-top: 2.25rem;
   padding-top: 0.85rem;
-  border-top: 1px solid var(--global-border-color);
   color: var(--global-text-color-light);
   font-family: $sans-serif;
-  font-size: 0.8125rem;
+  font-size: var(--editorial-small-size);
   line-height: 1.4;
   text-align: center;
 }
@@ -124,7 +116,7 @@
   justify-content: center;
   gap: 0.45rem;
   color: var(--global-text-color);
-  font-size: 0.9rem;
+  font-size: var(--editorial-summary-size);
   white-space: nowrap;
 }
 
@@ -139,33 +131,33 @@
 }
 
 .academic-home__visit-since {
-  font-size: 0.8125rem;
+  font-size: var(--editorial-small-size);
 }
 
 @include breakpoint(max-width $small) {
-  .academic-home {
-    max-width: none;
-  }
-
   .academic-home__intro {
-    padding: 0.85rem 0.9rem;
-
-    > ul {
-      padding-left: 0;
-      list-style: none;
-
-      ul {
-        padding-left: 1rem;
-      }
-    }
+    padding: 0.1rem 0 0.1rem 0.85rem;
+    margin-bottom: 1.25rem;
   }
 
-  .academic-home__chips > ul {
-    gap: 0.45rem;
+  .academic-home__research-group {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 0.25rem;
+    padding: 0.5rem 0;
+  }
 
-    > li {
-      padding: 0.32rem 0.55rem;
-      font-size: $type-size-6;
-    }
+  .academic-home__research {
+    margin-top: 0.5rem;
+  }
+
+  .academic-home__section > p {
+    margin-bottom: 0.75rem;
+  }
+
+  .academic-home__visit-stat {
+    margin-top: 1.75rem;
   }
 }
+
+.academic-home__intro > p { margin-bottom: 0.75rem; }
+.academic-home__intro > p:last-child { margin-bottom: 0; }

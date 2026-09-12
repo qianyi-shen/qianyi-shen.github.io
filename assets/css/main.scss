@@ -12,11 +12,10 @@
     "vendor/breakpoint/breakpoint",
 
     "themes",
-    "theme/{{ site.site_theme | default: 'default' | append: '_light' }}",
-    "theme/{{ site.site_theme | default: 'default' | append: '_dark' }}",
+    "theme/default_light",
+    "theme/default_dark",
 
     "include/mixins",
-    "vendor/susy/susy",
 
     "layout/reset",
     "layout/base",
@@ -24,15 +23,16 @@
     "include/utilities",
     "layout/tables",
     "layout/buttons",
-    "layout/notices",
     "layout/masthead",
     "layout/navigation",
     "layout/footer",
     "syntax",
 
     "layout/page",
+    "layout/editorial",
     "layout/academic-home",
     "layout/academic-content",
+    "layout/paper-map",
     "layout/not-found",
     "layout/archive",
     "layout/sidebar",
