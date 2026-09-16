@@ -62,8 +62,7 @@ h1.publication-category {
   border-top: 1px solid var(--global-border-color);
 }
 
-.publication-index .archive__item-title,
-.academic-projects .archive__item-title {
+.publication-index .archive__item-title {
   margin: 0 0 0.35rem;
   font-size: 1.05rem;
   font-weight: 600;
@@ -167,5 +166,4 @@ h1.publication-category {
   font-size: var(--editorial-summary-size);
   line-height: 1.6;
 }
-.publication-index .archive__item-excerpt,
-.academic-projects .archive__item-excerpt { font-size: var(--editorial-summary-size); line-height: 1.6; }
+.publication-index .archive__item-excerpt { font-size: var(--editorial-summary-size); line-height: 1.6; }

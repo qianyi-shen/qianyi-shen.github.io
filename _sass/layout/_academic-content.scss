@@ -11,6 +11,21 @@
 }
 
 /*
+   Projects
+   ========================================================================== */
+
+.academic-projects {
+  .project > h1 {
+    margin: 0 0 var(--editorial-heading-gap);
+  }
+
+  .archive__item-excerpt {
+    font-size: var(--editorial-summary-size);
+    line-height: var(--editorial-reading-leading);
+  }
+}
+
+/*
    Gallery
    ========================================================================== */
 
