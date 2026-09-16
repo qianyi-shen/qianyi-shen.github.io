@@ -1,6 +1,6 @@
 ---
-title: '从 GP-MPC 系列看学习与控制的分工'
-title_lang: zh-CN
+title: 'The Roles of Learning and Control: Reflections on the GP-MPC Series'
+title_lang: en
 lang: zh-CN
 date: 2026-09-12
 permalink: /posts/gp-mpc-reflections/

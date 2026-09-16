@@ -13,7 +13,6 @@ description: "Research in learning-based vehicle motion control, state estimatio
 <section class="project list__item" markdown="1">
 
 # GRIP-MPC
-{: .archive__item-title}
 
 <p class="publication-meta"><span class="publication-meta__year">2026 – </span><span>Tongji University</span><span class="publication-meta__status">· Ongoing</span></p>
 
@@ -34,7 +33,6 @@ Results will be published after the paper is accepted and the R&D project is no 
 <section class="project list__item" markdown="1">
 
 # Learning-based Control
-{: .archive__item-title}
 
 <p class="publication-meta"><span class="publication-meta__year">2025 – </span><span>Tongji University</span><span class="publication-meta__status">· Ongoing</span></p>
 
@@ -53,7 +51,6 @@ A survey paper [*Learning-Based Motion Control for Intelligent Vehicles: A Taxon
 <section class="project list__item" markdown="1">
 
 # Zonotopic State Estimation & Fault Diagnosis
-{: .archive__item-title}
 
 <p class="publication-meta"><span class="publication-meta__year">2022 - 2025</span><span>Jiangnan University</span></p>
 
