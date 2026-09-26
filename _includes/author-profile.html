@@ -38,9 +38,9 @@
           </button>
             <span id="wechat-qr" class="author__wechat-popover" hidden>
               {% if author.wechat_qr contains "://" %}
-                <img src="{{ author.wechat_qr }}" alt="WeChat QR code for {{ author.name }}" width="600" height="764" decoding="async">
+                <img data-src="{{ author.wechat_qr }}" alt="WeChat QR code for {{ author.name }}" width="446" height="600" decoding="async">
               {% else %}
-                <img src="{{ author.wechat_qr | prepend: "/images/" | prepend: base_path }}" alt="WeChat QR code for {{ author.name }}" width="600" height="764" decoding="async">
+                <img data-src="{{ author.wechat_qr | prepend: "/images/" | prepend: base_path }}" alt="WeChat QR code for {{ author.name }}" width="446" height="600" decoding="async">
               {% endif %}
             </span>
         </li>

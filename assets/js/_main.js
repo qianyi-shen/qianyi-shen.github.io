@@ -30,24 +30,26 @@ const updateThemeColor = (theme) => {
 };
 
 const setTheme = (theme) => {
-  const useTheme = theme || getStoredTheme() || $('html').attr('data-theme') || browserPref;
+  const root = document.documentElement;
+  const icon = document.getElementById('theme-icon');
+  const useTheme = theme || getStoredTheme() || root.getAttribute('data-theme') || browserPref;
   const useDarkTheme = useTheme === 'dark';
 
   if (useDarkTheme) {
-    $('html').attr('data-theme', 'dark');
-    $('#theme-icon').removeClass('fa-sun').addClass('fa-moon');
+    root.setAttribute('data-theme', 'dark');
     updateThemeColor('dark');
   } else {
-    $('html').removeAttr('data-theme');
-    $('#theme-icon').removeClass('fa-moon').addClass('fa-sun');
+    root.removeAttribute('data-theme');
     updateThemeColor('light');
   }
 
-  $('#theme-toggle a').attr('aria-pressed', useDarkTheme ? 'true' : 'false');
+  icon.classList.toggle('fa-moon', useDarkTheme);
+  icon.classList.toggle('fa-sun', !useDarkTheme);
+  document.querySelector('#theme-toggle a').setAttribute('aria-pressed', String(useDarkTheme));
 };
 
 const toggleTheme = () => {
-  const currentTheme = $('html').attr('data-theme');
+  const currentTheme = document.documentElement.getAttribute('data-theme');
   const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
   storeTheme(newTheme);
   setTheme(newTheme);
@@ -91,10 +93,10 @@ const updateVisitCount = () => {
 };
 
 /* ==========================================================================
-   Actions that should occur when the page has been fully loaded
+   Module scripts run after the document has been parsed.
    ========================================================================== */
 
-$(document).ready(function () {
+(() => {
   // SCSS SETTINGS - These should be the same as the settings in the relevant files 
   const scssLarge = 925;  // pixels, from /_sass/_themes.scss
 
@@ -110,8 +112,9 @@ $(document).ready(function () {
         });
 
   // Enable the theme toggle
-  $('#theme-toggle').on('click', toggleTheme);
-  $('#theme-toggle a').on('keydown', function (event) {
+  const themeButton = document.querySelector('#theme-toggle a');
+  themeButton.addEventListener('click', toggleTheme);
+  themeButton.addEventListener('keydown', (event) => {
     if (event.key === 'Enter' || event.key === ' ') {
       event.preventDefault();
       toggleTheme();
@@ -121,21 +124,33 @@ $(document).ready(function () {
   // Native button activation supports both Enter and Space.
   const wechatButton = document.querySelector('.author__wechat-trigger');
   const wechatPopover = document.getElementById('wechat-qr');
+  let wechatPinned = false;
   const setWechatOpen = (open) => {
     if (!wechatButton || !wechatPopover) return;
+    if (open) {
+      const image = wechatPopover.querySelector('img[data-src]');
+      if (image) {
+        image.src = image.dataset.src;
+        image.removeAttribute('data-src');
+      }
+    } else {
+      wechatPinned = false;
+    }
     wechatButton.setAttribute('aria-expanded', String(open));
     wechatPopover.hidden = !open;
   };
   if (wechatButton && wechatPopover) {
     const wechatRow = wechatButton.closest('.author__wechat');
     wechatButton.addEventListener('click', () => {
-      setWechatOpen(wechatPopover.hidden);
+      // A click keeps a hover preview open; the next click closes it.
+      wechatPinned = !wechatPinned;
+      setWechatOpen(wechatPinned);
     });
     wechatRow.addEventListener('pointerenter', (event) => {
       if (event.pointerType === 'mouse') setWechatOpen(true);
     });
     wechatRow.addEventListener('pointerleave', () => {
-      if (!wechatRow.contains(document.activeElement)) setWechatOpen(false);
+      if (!wechatPinned && !wechatRow.contains(document.activeElement)) setWechatOpen(false);
     });
     wechatRow.addEventListener('keydown', (event) => {
       if (event.key === 'Escape' && !wechatPopover.hidden) {
@@ -187,4 +202,4 @@ $(document).ready(function () {
     });
   }
 
-});
+})();

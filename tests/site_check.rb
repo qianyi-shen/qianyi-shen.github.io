@@ -106,8 +106,8 @@ uglify = 'node_modules/uglify-js/bin/uglifyjs'
 check(File.file?(uglify), 'JS build dependency is installed (run npm install first)')
 Dir.mktmpdir('academic-site-check-') do |work|
   js = File.join(work, 'main.min.js')
-  output, status = Open3.capture2e(node, uglify, 'node_modules/jquery/dist/jquery.min.js',
-    'assets/js/plugins/jquery.greedy-navigation.js', 'assets/js/_main.js', '-c', '-m', '-o', js)
+  output, status = Open3.capture2e(node, uglify,
+    'assets/js/plugins/greedy-navigation.js', 'assets/js/_main.js', '-c', '-m', '-o', js)
   check(status.success?, "JS compilation succeeds: #{output}")
   check(File.binread(js) == File.binread('assets/js/main.min.js'), 'JS bundle matches its sources')
 
@@ -156,8 +156,8 @@ Dir.mktmpdir('academic-site-check-') do |work|
     # Check every local HTML reference and fragment; external sites are not contacted.
     referenced_assets = Set.new
     pages.each do |path, doc|
-      references = doc.css('[href], [src], [srcset]').flat_map do |element|
-        [element['href'], element['src'], *element['srcset'].to_s.split(',').map { |entry| entry.strip.split.first }].compact
+      references = doc.css('[href], [src], [data-src], [srcset]').flat_map do |element|
+        [element['href'], element['src'], element['data-src'], *element['srcset'].to_s.split(',').map { |entry| entry.strip.split.first }].compact
       end
       references.each do |reference|
         next if reference.empty? || reference.start_with?('data:', 'mailto:', 'tel:', 'javascript:')
@@ -201,6 +201,8 @@ Dir.mktmpdir('academic-site-check-') do |work|
     check(entry.at_css('.page__meta').text == article.at_css('.page__meta').text, 'Archive and article show the same reading estimate')
     check(home.at_css('button.author__wechat-trigger[aria-expanded="false"][aria-controls="wechat-qr"]'), 'WeChat uses a native disclosure button')
     check(home.at_css('#wechat-qr[hidden]'), 'QR disclosure starts closed')
+    qr = home.at_css('#wechat-qr img')
+    check(qr['src'].nil? && !qr['data-src'].to_s.empty?, 'QR image is fetched only when opened')
     check(home.at_css('[data-visit-count]')['data-legacy-count'].to_i == config.dig('visit_counter', 'legacy_count'), 'Visit counter retains configured historical count')
     gallery = pages.fetch('gallery/index.html')
     check(gallery.css('img').all? { |img| img['loading'] == 'lazy' }, 'Gallery media is lazy-loaded')

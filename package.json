@@ -5,15 +5,12 @@
   "engines": {
     "node": ">=20"
   },
-  "dependencies": {
-    "jquery": "^3.7.1"
-  },
   "devDependencies": {
     "onchange": "^7.1.0",
     "uglify-js": "^3.17.4"
   },
   "scripts": {
-    "build:js": "uglifyjs node_modules/jquery/dist/jquery.min.js assets/js/plugins/jquery.greedy-navigation.js assets/js/_main.js -c -m -o assets/js/main.min.js",
+    "build:js": "uglifyjs assets/js/plugins/greedy-navigation.js assets/js/_main.js -c -m -o assets/js/main.min.js",
     "watch:js": "onchange \"assets/js/**/*.js\" -e \"assets/js/*.min.js\" -- npm run build:js",
     "test": "bundle exec ruby tests/site_check.rb"
   }
