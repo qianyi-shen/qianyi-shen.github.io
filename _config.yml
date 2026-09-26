@@ -85,6 +85,7 @@ exclude:
   - log
   - node_modules
   - package.json*
+  - prompts
   - README
   - tests
   - tmp

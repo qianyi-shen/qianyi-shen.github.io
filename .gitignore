@@ -11,6 +11,7 @@ local/
 
 # Ignore private maintainer/agent instructions
 AGENTS.md
+prompts/
 
 # Ignore the Gemfile that is generated
 Gemfile.lock
