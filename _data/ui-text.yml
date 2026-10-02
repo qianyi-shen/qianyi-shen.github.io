@@ -7,6 +7,7 @@ en: &DEFAULT_EN
   minute_read                : "min read"
   minute_read_plural         : "min read"
   date_label                 : "Published:"
+  updated_label              : "Updated:"
 
 en-US:
   <<: *DEFAULT_EN

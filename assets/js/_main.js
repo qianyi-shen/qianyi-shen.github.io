@@ -3,6 +3,8 @@
    ========================================================================== */
 
 const browserPref = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+// Explicit choices still take precedence when persistent storage is unavailable.
+let sessionTheme = null;
 
 const getStoredTheme = () => {
   try {
@@ -32,7 +34,7 @@ const updateThemeColor = (theme) => {
 const setTheme = (theme) => {
   const root = document.documentElement;
   const icon = document.getElementById('theme-icon');
-  const useTheme = theme || getStoredTheme() || root.getAttribute('data-theme') || browserPref;
+  const useTheme = theme || sessionTheme || getStoredTheme() || root.getAttribute('data-theme') || browserPref;
   const useDarkTheme = useTheme === 'dark';
 
   if (useDarkTheme) {
@@ -51,6 +53,7 @@ const setTheme = (theme) => {
 const toggleTheme = () => {
   const currentTheme = document.documentElement.getAttribute('data-theme');
   const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+  sessionTheme = newTheme;
   storeTheme(newTheme);
   setTheme(newTheme);
 };
@@ -106,7 +109,7 @@ const updateVisitCount = () => {
   setTheme();
   window.matchMedia('(prefers-color-scheme: dark)')
         .addEventListener("change", (e) => {
-          if (!getStoredTheme()) {
+          if (!sessionTheme && !getStoredTheme()) {
             setTheme(e.matches ? "dark" : "light");
           }
         });
@@ -117,7 +120,7 @@ const updateVisitCount = () => {
   themeButton.addEventListener('keydown', (event) => {
     if (event.key === 'Enter' || event.key === ' ') {
       event.preventDefault();
-      toggleTheme();
+      if (!event.repeat) toggleTheme();
     }
   });
 

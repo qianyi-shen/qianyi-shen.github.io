@@ -53,6 +53,10 @@
   padding-left: var(--editorial-gutter);
   padding-right: var(--editorial-gutter);
 
+  [id] {
+    scroll-margin-top: calc(var(--masthead-height, calc(3.5rem + 2px)) + 1rem);
+  }
+
   > .page,
   > .archive {
     float: none;

@@ -109,19 +109,6 @@ blockquote {
   }
 }
 
-/* links */
-
-a {
-  &:focus {
-    @extend %tab-focus;
-  }
-
-  &:hover,
-  &:active {
-    outline: 0;
-  }
-}
-
 /* code */
 
 tt, code, kbd, samp, pre {
@@ -202,7 +189,6 @@ figure {
   img {
     width: 100%;
     border-radius: $border-radius;
-    transition: $global-transition;
   }
 
   > a {
@@ -307,18 +293,3 @@ figure img {
     transition-duration: 0.01ms !important;
   }
 }
-
-/* ==========================================================================
-   PRINT STYLES
-   ========================================================================== */
-
-/*
-   Hide the following elements on print
-   ========================================================================== */
-
-   @media print {
-    .masthead,
-    .page__footer {
-      display: none;
-    }
-  }

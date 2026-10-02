@@ -244,17 +244,3 @@
   }
 
 }
-
-@media print {
-  @page { size: A4; margin: 15mm; }
-  html, body { background: #fff !important; color: #111 !important; font-size: 10pt; }
-  body { padding: 0 !important; margin: 0 !important; }
-  #main.layout--reading { max-width: none; padding: 0; margin: 0; }
-  .academic-projects {
-    &, * { color: #111 !important; background: transparent !important; box-shadow: none !important; }
-    h1, h2 { break-after: avoid; }
-    .project { margin-top: 1.5rem; }
-    .publication-link { border: 0; padding: 0; min-height: 0; }
-    a { text-decoration: underline; }
-  }
-}

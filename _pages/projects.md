@@ -42,7 +42,7 @@ Results will be published after the paper is accepted and the R&D project is no 
 
 **Results & Demonstrations.**
 
-A survey paper [*Learning-Based Motion Control for Intelligent Vehicles: A Taxonomy from a Closed-Loop Control Perspective*]({{ base_path }}/publication/survey-lbc), has been submitted to *IEEE Transactions on Intelligent Transportation Systems*.
+A survey paper [*Learning-Based Motion Control for Intelligent Vehicles: A Taxonomy from a Closed-Loop Control Perspective*]({{ base_path }}/publication/survey-lbc) has been submitted to *IEEE Transactions on Intelligent Transportation Systems*.
 
 </div>
 
@@ -61,7 +61,7 @@ A survey paper [*Learning-Based Motion Control for Intelligent Vehicles: A Taxon
 **Results & Demonstrations.**
 
 - Multiple journal papers have been published in *IEEE Transactions on Industrial Informatics* and *IEEE Transactions on Instrumentation and Measurement*.
-- Undergraduate thesis on zonotopic state estimation for time-delay systems was recognized as an Outstanding Undergraduate Thesis.
+- My undergraduate thesis on zonotopic state estimation for time-delay systems was recognized as an Outstanding Undergraduate Thesis.
 
 </div>
 

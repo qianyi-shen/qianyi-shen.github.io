@@ -23,6 +23,7 @@
   };
 
   const updateNav = () => {
+    const focusedElement = document.activeElement;
     let showButton = !button.classList.contains('hidden');
     if (visibleLinks.getBoundingClientRect().width > availableSpace(showButton)) {
       button.classList.remove('hidden');
@@ -43,7 +44,16 @@
       button.classList.add('hidden');
       closeNav();
     }
-    button.setAttribute('count', String(breaks.length));
+    // Moving a focused link can blur it, or place it inside the closed menu.
+    if (nav.contains(focusedElement)) {
+      if (focusedElement === button && button.classList.contains('hidden')) {
+        visibleLinks.querySelector('a').focus({ preventScroll: true });
+      } else if (hiddenLinks.contains(focusedElement) && hiddenLinks.classList.contains('hidden')) {
+        button.focus({ preventScroll: true });
+      } else if (document.activeElement !== focusedElement) {
+        focusedElement.focus({ preventScroll: true });
+      }
+    }
 
     // CSS uses this value for the fixed masthead and sticky sidebar.
     document.documentElement.style.setProperty('--masthead-height', masthead.getBoundingClientRect().height + 'px');
